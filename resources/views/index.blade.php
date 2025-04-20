@@ -8,9 +8,7 @@
 @section('body-content')
     <main>
 
-
         <!-- banner-part-start  -->
-
         <section class="banner-two" style="background-image: url({{ asset($homepage->home1_intro_bg) }});">
             <div class="container">
                 <div class="row">
@@ -402,23 +400,10 @@
 
         <!-- Categories-part-start -->
         <section class="categories categories-three  py-120px">
-            <div class="container">
+            <div class="container"> 
                 <div class="row align-items-end">
-                    <div class="col-lg-8 col-sm-8 col-md-8  ">
-                        <div class="taitel two">
-                            <div class="taitel-img">
-                            <span>
-                                <svg width="71" height="8" viewBox="0 0 71 8" fill="none"
-                                     xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M1 6.08589C15.5 0.18137 51.5 -0.151783 70 6.42496" stroke="#405FF2"
-                                          stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                            </span>
-                            </div>
-                            <span>{{ __('translate.Brands') }}</span>
-                        </div>
-
-                        <h2>{{ __('translate.Explore Popular Brand') }}</h2>
+                    <div class="col-lg-8 col-sm-8 col-md-8 text-end">
+                        <h2 style="direction: rtl;">{{ __('translate.Explore Popular Brand') }}</h2>
                     </div>
 
                     {{-- <div class="col-lg-4">
@@ -426,10 +411,9 @@
                             <a href="{{ route('listings') }}" class="thm-btn-two">{{ __('translate.View All') }}</a>
                         </div>
                     </div> --}}
-
                 </div>
 
-                <div class="row g-3  mt-30px mt-32px-res ">
+                <div class="row g-3  mt-30px mt-32px-r  es ">
                     @foreach ($brands->take(6) as $index => $brand)
                         <div class="col-xl-2 col-xl-2 col-lg-4 col-6 col-md-6" data-aos="fade-right"
                              data-aos-delay="50">

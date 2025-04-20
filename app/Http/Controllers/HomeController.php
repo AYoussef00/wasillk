@@ -479,6 +479,7 @@ class HomeController extends Controller
             $query->where('expired_date', null)
                 ->orWhere('expired_date', '>=', date('Y-m-d'));
         })->where(['status' => 'enable', 'approved_by_admin' => 'approved'])->where('slug', $slug)->firstOrFail();
+        session(['selected_car_id' => $car->id]); 
 
         $car->total_view +=1;
         $car->save();

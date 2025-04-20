@@ -22,7 +22,7 @@
               <div class="logout-text">
                   <span>{{ __('translate.Are you sure you want to Logout') }}</span>
 
-                  <h3>{{ __('translate.CARBAZ') }}</h3>
+                  <h3>{{ __('translate.WASILLK') }}</h3>
               </div>
           </div>
 

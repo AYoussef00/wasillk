@@ -9,7 +9,7 @@
 
     <section class="inner-banner">
     <div class="inner-banner-img" style=" background-image: url({{ asset($breadcrumb) }}) ;"></div>
-        <div class="container">
+        {{-- <div class="container">
         <div class="col-lg-12">
             <div class="inner-banner-df">
                 <h1 class="inner-banner-taitel">{{ __('translate.Select Purpose') }}</h1>
@@ -21,7 +21,7 @@
                 </nav>
             </div>
             </div>
-        </div>
+        </div> --}}
     </section>
     <!-- banner-part-end -->
 
@@ -67,14 +67,12 @@
                                     </div>
                                 </div>
 
-                                <h4 class="add-listing-car-txt">{{ __('translate.Add Car for Rent') }}</h4>
-                                <p class="add-listing-car-sub-txt">
-                                    {{ __('translate.Do you have a car rental business? Click the button below to add new rental car information and get a new rental.') }}
-                                </p>
+                                <h4 class="add-listing-car-txt">{{ __('إضافة سيارة للإيجار') }}</h4>
+
 
                                 <div class="add-listing-car-btn">
                                     <a href="{{ route('user.car.create', ['purpose' => 'Rent']) }}" class="thm-btn-two">
-                                        {{ __('translate.Create For Rent') }}</a>
+                                        {{ __('إضافة') }}</a>
                                 </div>
                             </div>
                         </div>
@@ -135,13 +133,9 @@
                                     </div>
                                 </div>
 
-                                <h4 class="add-listing-car-txt">{{ __('translate.Add Car for Sale') }}</h4>
-                                <p class="add-listing-car-sub-txt">
-                                    {{ __('translate.Do you have a car sales business? Click the button below to add new sales car information and get a new client') }}
-                                </p>
-
+                                <h4 class="add-listing-car-txt">{{ __('إضافة سيارة للبيع') }}</h4>
                                 <div class="add-listing-car-btn">
-                                    <a href="{{ route('user.car.create', ['purpose' => 'Sale']) }}" class="thm-btn-two">{{ __('translate.Create For Sale') }}</a>
+                                    <a href="{{ route('user.car.create', ['purpose' => 'Sale']) }}" class="thm-btn-two">{{ __('إضافة') }}</a>
                                 </div>
                             </div>
                         </div>

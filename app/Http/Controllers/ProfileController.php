@@ -11,6 +11,8 @@ use App\Models\Review;
 use App\Rules\Captcha;
 use Hash, Image, File, Str;
 use Modules\Car\Entities\Car;
+use Illuminate\Support\Facades\DB;
+
 
 class ProfileController extends Controller
 {
@@ -31,8 +33,11 @@ class ProfileController extends Controller
         $total_featured_car = Car::where('agent_id', $user->id)->where('is_featured', 'enable')->count();
 
         $total_wishlist = Wishlist::where('user_id', $user->id)->count();
+        $total_pending_request = DB::table('pending_requests')->count();
+        $total_confirmed_request = DB::table('confirm_requests')->count();
 
-        return view('profile.dashboard', ['user' => $user, 'cars' => $cars, 'total_car' => $total_car, 'total_featured_car' => $total_featured_car, 'total_wishlist' => $total_wishlist]);
+
+        return view('profile.dashboard', ['user' => $user, 'cars' => $cars, 'total_car' => $total_car, 'total_featured_car' => $total_featured_car, 'total_wishlist' => $total_wishlist, 'total_pending_requests' => $total_pending_request, 'total_confirmed_requests' => $total_confirmed_request]);
     }
 
     public function edit(Request $request)

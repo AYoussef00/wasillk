@@ -9,6 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PaypalController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\BookingController;
 use Modules\GeneralSetting\Entities\Setting;
 use App\Http\Controllers\Admin\UserController;
 use Modules\GeneralSetting\Entities\EmailTemplate;
@@ -221,3 +222,17 @@ Route::get('/migrate-for-update', function () {
     $notification = array('messege' => $notification, 'alert-type' => 'success');
     return redirect()->route('home')->with($notification);
 });
+
+
+
+
+Route::get('/pending-requests', [BookingController::class, 'showPendingRequests'])->name('bookings.pending');
+
+Route::get('/submit_request', action:[BookingController::class,'submitRequest'])->name('submit.request');
+
+Route::post('/pending-requests', [BookingController::class, 'store'])->name('pending-requests.store');
+
+
+Route::patch('/requests/{id}/approve', [BookingController::class, 'approve'])->name('requests.approve');
+// routes/web.php
+Route::get('/confirmed-requests', [BookingController::class, 'confirmed'])->name('requests.confirmed');

@@ -123,7 +123,7 @@
                 <div class="col-lg-5 col-p-0">
                     <div class="header-right-item">
                         <div class="header-right-item-btn-main">
-                            <div class="header-right-item-btn">
+                            {{-- <div class="header-right-item-btn">
                                 <div class="dropdown two">
                                     <a class=" btn-secondary dropdown-toggle" href="#" role="button"
                                         id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
@@ -159,8 +159,8 @@
                                     </ul>
 
                                 </div>
-                            </div>
-                            <div class="header-right-item-btn">
+                            </div> --}}
+                            {{-- <div class="header-right-item-btn">
                                 <div class="dropdown">
                                     <a class=" btn-secondary dropdown-toggle" href="#" role="button"
                                         id="dropdownMenuLink1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -191,11 +191,11 @@
                                     </ul>
 
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
 
 
-                        <div class="header-right-login-btn">
+                        {{-- <div class="header-right-login-btn">
                             @auth('web')
                                 <a href="{{ route('user.dashboard') }}" class="@if(Route::is('home')) {{ Session::get('selected_theme') == 'theme_three' ? 'thm-btn' : 'thm-btn-two' }} @else thm-btn-two  @endif">
                                     <span>
@@ -207,7 +207,7 @@
                                                 stroke-linejoin="round" />
                                         </svg>
                                     </span>
-                                    {{ __('translate.Dashboard') }}
+                                    {{ __('لوحة التحكم') }}
                                 </a>
                             @else
                             <a href="{{ route('login') }}" class="@if(Route::is('home')) {{ Session::get('selected_theme') == 'theme_three' ? 'thm-btn' : 'thm-btn-two' }} @else thm-btn-two  @endif">
@@ -224,7 +224,7 @@
                             </a>
                             @endauth
 
-                        </div>
+                        </div> --}}
 
                     </div>
                 </div>
@@ -258,7 +258,7 @@
                                 <div class="menu">
                                     <ul>
                                         @if ($setting->selected_theme == 'all_theme')
-                                            <li><a href="{{ route('home') }}">{{ __('translate.Home') }} <i class="fa-solid fa-angle-down"></i> </a>
+                                            <li><a href="{{ route('home') }}">{{ __('الصفحة الرئيسية') }} <i class=""></i> </a>
 
                                                 {{-- <ul class="sub-menu">
                                                     <li><a href="{{ route('home', ['theme' => 'one']) }}">{{ __('translate.Home-01') }} </a> </li>
@@ -270,9 +270,9 @@
                                             <li><a href="{{ route('home') }}">{{ __('translate.Home') }}</a></li>
                                         @endif
 
-                                        <li><a href="{{ route('about-us') }}">{{ __('translate.About Us') }}</a></li>
+                                        <li><a href="{{ route('about-us') }}">{{ __('نبذة عنا') }}</a></li>
 
-                                        <li><a href="{{ route('listings') }}">{{ __('translate.Listings') }}</a></li>
+                                        <li><a href="{{ route('listings') }}">{{ __('المعرض') }}</a></li>
 
                                         {{-- <li><a href="{{ route('dealers') }}">{{ __('translate.Dealers') }}</a></li> --}}
 
@@ -295,8 +295,8 @@
                                             </ul>
                                         </li> --}}
 
-                                        <li><a href="{{ route('faq') }}">{{ __('translate.FAQ') }}</a></li>
-                                        <li><a href="{{ route('contact-us') }}">{{ __('translate.Contact') }}</a></li>
+                                        <li><a href="{{ route('faq') }}">{{ __('مساعدة') }}</a></li>
+                                        <li><a href="{{ route('contact-us') }}">{{ __('إتصل بنا ') }}</a></li>
 
                                     </ul>
                                 </div>
@@ -435,11 +435,11 @@
                                 </span>
                             </a>
 
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            {{-- <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                 @foreach ($currency_list as $currency_dropdown_item)
                                     <li><a class="dropdown-item" href="{{ route('currency-switcher', ['currency_code' => $currency_dropdown_item->currency_code]) }}">{{ $currency_dropdown_item->currency_name }}</a></li>
                                 @endforeach
-                            </ul>
+                            </ul> --}}
 
                         </div>
                     </div>
@@ -478,8 +478,6 @@
                     </div>
                 </div>
             </div>
-
-
             <div class="header-right-login-btn">
                 @auth('web')
                     <a href="{{ route('user.dashboard') }}" class="@if(Route::is('home')) {{ Session::get('selected_theme') == 'theme_three' ? 'thm-btn' : 'thm-btn-two' }} @else thm-btn-two  @endif">
@@ -779,12 +777,10 @@
                                             </svg>
                                         </span>{{ __('translate.Join as Dealer') }}</a>
                                     </li>
-
-
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-xl-4 col-lg-4 col-sm-6 col-md-5 footer-res-mt " data-aos="fade-up"
+                        {{-- <div class="col-xl-4 col-lg-4 col-sm-6 col-md-5 footer-res-mt " data-aos="fade-up"
                             data-aos-delay="300">
                             <div class="footer-item-text">
                                 <h3>{{ __('translate.My Profile') }}</h3>
@@ -836,14 +832,13 @@
 
                                 </ul>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="col-xl-4 col-lg-4   col-sm-6 col-md-3" data-aos="fade-up" data-aos-delay="400">
 
                             <div class="footer-item-text-link two">
                                 <div class="footer-item-text">
                                     <h3>{{ __('translate.Contact Us') }}</h3>
                                 </div>
-
                                 <ul>
                                     <li>
                                         <a href="tel:{{ $setting->phone }}">
@@ -882,18 +877,12 @@
                                         </a>
                                     </li>
                                 </ul>
-
-
                             </div>
-
-
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-
         <div class="copyright">
             <div class="container">
                 <div class="row ">
@@ -913,10 +902,7 @@
         </div>
 
     </footer>
-
     <!-- footer prart start  end -->
-
-
     @if ($cookie_consent->status == 1)
         <!-- common-modal start  -->
         <div class="common-modal cookie_consent_modal d-none" >
@@ -936,7 +922,7 @@
 
 
 
-    <!-- back-to-top  -->
+    {{-- <!-- back-to-top  -->
     @if (Route::is('home'))
         @if (Session::get('selected_theme') == 'theme_two')
             <div class="back-to-top">
@@ -1000,7 +986,7 @@
 
             </span>
         </div>
-    @endif
+    @endif --}}
 
     <!-- back-to-top  -->
 

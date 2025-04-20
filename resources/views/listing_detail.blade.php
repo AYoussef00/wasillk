@@ -15,12 +15,8 @@
         <div class="container">
         <div class="col-lg-12">
             <div class="inner-banner-df">
-                <h1 class="inner-banner-taitel">{{ __('translate.Car Details') }}</h1>
                 <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('home') }}">{{ __('translate.Home') }}</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">{{ __('translate.Car Details') }}</li>
-                    </ol>
+                
                 </nav>
             </div>
             </div>
@@ -121,11 +117,11 @@
                     </div>
 
 
-                    @if ($listing_ads->status == 'enable')
+                    {{-- @if ($listing_ads->status == 'enable')
                         <div class="inventory-details-thumb" data-aos="fade-up" data-aos-delay="50">
                             <a href="{{ $listing_ads->link }}" target="_blank"> <img src="{{ getImageOrPlaceholder($listing_ads->image,'950x130') }}" alt="img"></a>
                         </div>
-                    @endif
+                    @endif --}}
 
 
                     <!-- Description Overview  -->
@@ -531,7 +527,7 @@
 
 
                     <!-- Video -->
-                    <div class="accordion" id="accordionPanelsStayOpenExample3" data-aos="fade-up"
+                    {{-- <div class="accordion" id="accordionPanelsStayOpenExample3" data-aos="fade-up"
                     data-aos-delay="250">
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="panelsStayOpen-headingfour">
@@ -569,11 +565,11 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
 
                     <!-- Locations -->
-                    <div class="accordion" id="accordionPanelsStayOpenExample4" data-aos="fade-up"
+                    {{-- <div class="accordion" id="accordionPanelsStayOpenExample4" data-aos="fade-up"
                     data-aos-delay="300">
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="panelsStayOpen-headingfive">
@@ -613,7 +609,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
 
                     @if ($reviews->count() > 0)
@@ -836,43 +832,9 @@
 
 
 
-                            <form method="POST" action="{{ route('send-message-to-dealer', $dealer->id) }}">
-                                @csrf
-                                <div class="auto-sales-form">
+                            <button type="submit" class="thm-btn-two" style="background-color: green">{{ __('WhatsApp') }}</button>
+                            <button type="submit" class="thm-btn-two" data-bs-toggle="modal" data-bs-target="#reservationModal">{{ __('Rent Now') }}</button>
 
-                                    <div class="auto-sales-form-item">
-                                        <input type="text" class="form-control" id="exampleFormControlInput3"
-                                            placeholder="{{ __('translate.Name') }} *" name="name" value="{{ old('name') }}">
-                                    </div>
-                                    <div class="auto-sales-form-item">
-                                        <input type="email" class="form-control" id="exampleFormControlInput4"
-                                            placeholder="{{ __('translate.Email') }} *" name="email" value="{{ old('email') }}">
-                                    </div>
-
-                                    <div class="auto-sales-form-item">
-                                        <input type="text" class="form-control" id="exampleFormControlInput5"
-                                            placeholder="{{ __('translate.Phone') }}" name="phone" value="{{ old('phone') }}">
-                                    </div>
-
-                                    <div class="auto-sales-form-item">
-                                        <input type="text" class="form-control" id="exampleFormControlInpu6"
-                                            placeholder="{{ __('translate.Subject') }} *" value="{{ old('subject') }}" name="subject">
-                                    </div>
-
-                                    <div class="auto-sales-form-item">
-                                        <textarea class="form-control" id="exampleFormControlTextarea11" rows="3"
-                                            placeholder="{{ __('translate.Message') }} *" name="message">{{ old('message') }}</textarea>
-                                    </div>
-
-                                    @if($google_recaptcha->status==1)
-                                        <div class="auto-sales-form-item">
-                                            <div class="g-recaptcha" data-sitekey="{{ $google_recaptcha->site_key }}"></div>
-                                        </div>
-                                    @endif
-
-                                    <button type="submit" class="thm-btn-two">{{ __('translate.Send Message') }}</button>
-                                </div>
-                            </form>
                         </div>
 
                         {{-- <div class="auto-lone-item">
@@ -964,6 +926,7 @@
             </div>
         </div>
     </section>
+    
     <!-- Inventory Details-part-end -->
 
     <!-- Cars Listing-part-start -->
@@ -1266,6 +1229,126 @@
         })
 
     </script>
+
+<!-- Modal -->
+<div class="modal fade" id="reservationModal" tabindex="-1" aria-labelledby="reservationModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" style="max-width: 60%;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="reservationModalLabel">Car Reservation Request</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+  
+        <div class="modal-body">
+          <h4 class="text-center mb-4">{{ $car->slug . ' ' . $car->year }} - طلب إيجار سيارة </h4> <!-- هنا تم إضافة العنوان -->
+  
+        <form action="{{ route('pending-requests.store') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="row g-2">
+              <div class="col-md-6 mb-2">
+                <label>الإسم بالكامل</label>
+                <input type="text" name="full_name" class="form-control form-control-sm" required>
+              </div>
+  
+              <div class="col-md-6 mb-2">
+                <label>البريد الإلكتروني</label>
+                <input type="email" name="email" class="form-control form-control-sm" required>
+              </div>
+
+              <input type="hidden" name="car_id" value="{{ $car->id }}">
+
+              <div class="col-md-6 mb-2">
+                <label>رقم الهاتف</label>
+                <input type="text" name="phone_number" class="form-control form-control-sm" required>
+              </div>
+  
+              <div class="col-md-6 mb-2">
+                <label>تاريخ الإستلام</label>
+                <input type="date" name="pickup_date" id="pickup_date" class="form-control form-control-sm" required>
+              </div>
+  
+              <div class="col-md-6 mb-2">
+                <label>تاريخ الإسترجاع</label>
+                <input type="date" name="return_date" id="return_date" class="form-control form-control-sm" required>
+              </div>
+  
+              <div class="col-md-6 mb-2">
+                <label>استلام السيارة</label>
+                <select name="delivery_method" class="form-control form-control-sm" required>
+                  <option value="branch">من المعرض</option>
+                  <option value="destination">التوصيل الي المنزل</option>
+                </select>
+              </div>
+  
+              <div class="col-md-6 mb-2">
+                <label>إجمالي عدد الأيام</label>
+                <input type="number" name="total_days" id="total_days" class="form-control form-control-sm" readonly>
+              </div>
+  
+              <div class="col-md-6 mb-2">
+                <label>إجمالي المبلغ</label>
+                <div class="input-group">
+                  <input type="number" step="0.01" name="total_amount" class="form-control form-control-sm" value="0" readonly required>
+                  <span class="input-group-text">ريال</span>
+                </div>
+              </div>
+  
+              <div class="col-md-6 mb-3">
+                <label>رخصة القيادة (ارفاق صورة)</label>
+                <input type="file" name="driving_licence" accept="image/*" class="form-control form-control-sm" required>
+              </div>
+  
+              <div class="col-md-6 mb-3">
+                <label>الهوية (إرفاق صورة)</label>
+                <input type="file" name="national_id" accept="image/*" class="form-control form-control-sm" required>
+              </div>
+            </div>
+  
+            <div class="d-grid">
+              <button type="submit" class="btn btn-success" style="background-color: blue">إرسال</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    @if(session('success'))
+    <div class="alert alert-success mt-3">
+        {{ session('success') }}
+    </div>
+@endif
+  </div>
+  
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const pickupDateInput = document.getElementById('pickup_date');
+        const returnDateInput = document.getElementById('return_date');
+        const totalDaysInput = document.getElementById('total_days');
+        const totalAmountInput = document.querySelector('input[name="total_amount"]');
+
+        const carPricePerDay = {{ $car->regular_price ?? 0 }}; // تأكد إنك عندك هذا الحقل في الـ$car
+
+        function calculateTotal() {
+            const pickupDate = new Date(pickupDateInput.value);
+            const returnDate = new Date(returnDateInput.value);
+
+            if (!isNaN(pickupDate) && !isNaN(returnDate) && returnDate > pickupDate) {
+                const diffTime = Math.abs(returnDate - pickupDate);
+                const totalDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+                totalDaysInput.value = totalDays;
+                totalAmountInput.value = totalDays * carPricePerDay;
+            } else {
+                totalDaysInput.value = 0;
+                totalAmountInput.value = 0;
+            }
+        }
+
+        pickupDateInput.addEventListener('change', calculateTotal);
+        returnDateInput.addEventListener('change', calculateTotal);
+    });
+</script>
+  
 
 
 @endpush
