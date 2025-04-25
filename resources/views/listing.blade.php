@@ -295,11 +295,7 @@
 
 
                     </form>
-                    @if ($listing_ads->status == 'enable')
-                        <div class="inventory-main-box-thumb">
-                            <a href="{{ $listing_ads->link }}" target="_blank"> <img src="{{ getImageOrPlaceholder($listing_ads->image, '340x525') }}" alt="img"></a>
-                        </div>
-                    @endif
+
 
 
 

@@ -4,8 +4,6 @@
 @endsection
 @section('body-content')
 
-
-
 <main>
     <section class="dashboard">
         <div class="container">

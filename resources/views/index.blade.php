@@ -467,9 +467,6 @@
                         <div class="tab-content" id="pills-tabContent1111">
                             <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
                                  aria-labelledby="pills-home-tab">
-
-
-                              
                                  <div class="row g-3">
                                     @foreach($used_cars as $car)
                                         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
@@ -495,7 +492,6 @@
                                                             </a>
                                                         </h5>
                                                     </div>
-                                
                                                     <div class="px-3 pb-3 text-end">
                                                         <a href="https://wa.me/{{ $car->whatsapp_number ?? '966000000000' }}?text=مرحبا، أود الاستفسار عن السيارة {{ urlencode($car->title) }}"
                                                            target="_blank"
@@ -503,10 +499,6 @@
                                                             <img src="{{ asset('frontend/assets/images/icon/whatsapp.png') }}" alt="WhatsApp" width="40" height="40">
                                                         </a>
                                                     </div>
-                                                    
-                                                    
-                                                    
-                                                    
                                                 </div>
                                             </div>
                                         </div>
@@ -695,7 +687,7 @@
 
         <!--  vedio-part-start -->
 
-        <section class="vedio vedio-two ">
+        {{-- <section class="vedio vedio-two ">
             <div class="container vedio-bg"
                  style="background: url({{ asset($homepage->video_bg_image) }});">
                 <div class="row align-items-center">
@@ -743,7 +735,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
         <!--  vedio-part-end -->
 
 
@@ -1089,7 +1081,7 @@
         <!--  Loan-part-end -->
 
         <!--   Testimonial-part-start -->
-        <section class="testimonial two py-120px">
+        {{-- <section class="testimonial two py-120px">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-5">
@@ -1228,7 +1220,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
         <!--   Testimonial-part-end -->
 
 

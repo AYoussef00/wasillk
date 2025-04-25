@@ -54,8 +54,6 @@ class CarRequest extends FormRequest
                     'condition'=>'required',
                     'regular_price'=>'required|numeric',
                     'offer_price'=> $this->request->get('offer_price') ? 'numeric' : '',
-                    'address'=>'required',
-                    'google_map'=>'required',
                     'body_type'=>'required',
                     'engine_size'=>'required',
                     'drive'=>'required',

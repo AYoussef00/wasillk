@@ -9,7 +9,6 @@
 
 <main>
     <!-- banner-part-start  -->
-
     <section class="inner-banner">
     <div class="inner-banner-img" style=" background-image: url({{ asset($breadcrumb) }}) ;"></div>
         <div class="container">
@@ -23,9 +22,6 @@
         </div>
     </section>
     <!-- banner-part-end -->
-
-
-
     <!-- Inventory Details-part-start -->
 
 
@@ -87,8 +83,6 @@
 
                                             </span>
                                             </a>
-
-
                                             <a href="http://localhost/carbaz/add-to-compare/13" class="icon">
                                             <span>
                                             <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
