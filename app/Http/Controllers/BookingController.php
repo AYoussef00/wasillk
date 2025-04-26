@@ -50,8 +50,8 @@ class BookingController extends Controller
             'national_id' => $idPath,
         ]);
     
-        return redirect()->back()->with('success', 'تم إرسال الطلب بنجاح، سيتم التواصل معك قريباً.');
-    }
+        return response()->json(['message' => 'تم الإرسال بنجاح']);
+        }
 
 
     public function showPendingRequests()

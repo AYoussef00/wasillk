@@ -304,7 +304,7 @@ return array (
   'Contact' => 'اتصل بنا',
   'Add Car' => 'أضف سيارة',
   'Join Our' => 'انضم إلى',
-  'Get updated.' => 'كن على اطلاع.',
+  'Get updated.' => 'وكن على اطلاع',
   'Email Address' => 'عنوان البريد الإلكتروني',
   'Subscribe' => 'اشترك',
   'We only send interesting and relevant emails.' => 'نرسل فقط الرسائل المهمة والمفيدة.',

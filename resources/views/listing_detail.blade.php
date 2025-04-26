@@ -3,6 +3,8 @@
     <title>{{ html_decode($car->seo_title) }}</title>
     <meta name="title" content="{{ html_decode($car->seo_title) }}">
     <meta name="description" content="{{ html_decode($car->seo_description) }}">
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 @endsection
 
 @section('body-content')
@@ -142,7 +144,7 @@
 
 
                     <!-- Description Overview  -->
-                    <div class="accordion" id="accordionPanelsStayOpenExample1" data-aos="fade-up"
+                    {{-- <div class="accordion" id="accordionPanelsStayOpenExample1" data-aos="fade-up"
                     data-aos-delay="150">
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="panelsStayOpen-headingtwo">
@@ -488,7 +490,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
 
                     <div class="accordion aos-init aos-animate" id="accordionPanelsStayOpenExample2" data-aos="fade-up"
@@ -518,94 +520,6 @@
                             </div>
                         </div>
                     </div>
-
-
-                    <!-- Video -->
-                    {{-- <div class="accordion" id="accordionPanelsStayOpenExample3" data-aos="fade-up"
-                    data-aos-delay="250">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="panelsStayOpen-headingfour">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#panelsStayOpen-collapsefour" aria-expanded="true"
-                                    aria-controls="panelsStayOpen-collapsefour">
-                                    {{ __('translate.Video') }}
-                                </button>
-                            </h2>
-                            <div id="panelsStayOpen-collapsefour" class="accordion-collapse collapse show"
-                                aria-labelledby="panelsStayOpen-headingfour">
-                                <div class="accordion-body">
-                                    {{ html_decode($car->video_description) }}
-
-
-
-                                    <span class="inventory-details-vedio">
-                                        <img src="{{ asset($car->video_image) }}" alt="img">
-
-                                        <span class="overlay">
-                                            <a class="my-video-links" data-autoplay="true" data-vbtype="video"
-                                                href="https://youtu.be/{{ $car->video_id }}">
-                                                <span>
-                                                    <svg width="80" height="80" viewBox="0 0 80 80" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                                            d="M40 76.0001C59.8822 76.0001 76.0001 59.8827 76.0001 40C76.0001 20.1178 59.8827 3.99992 40 3.99992C20.1178 3.99992 3.99992 20.1178 3.99992 40C3.99992 59.8822 20.1178 76.0001 40 76.0001ZM40 80C62.0911 80 80 62.0911 80 40C80 17.9084 62.0911 0 40 0C17.9084 0 0 17.9084 0 40C0 62.0911 17.9084 80 40 80Z" />
-                                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                                            d="M50.3927 40.0003L31.9984 27.7375V52.2634L50.3927 40.0003ZM54.1089 37.6706C55.7716 38.7791 55.7716 41.2219 54.1089 42.3303L32.3513 56.8357C30.4906 58.0763 27.998 56.742 27.998 54.5057V25.4953C27.998 23.259 30.4906 21.9251 32.3513 23.1657L54.1089 37.6706Z" />
-                                                    </svg>
-                                                </span>
-                                            </a>
-                                        </span>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
-
-
-                    <!-- Locations -->
-                    {{-- <div class="accordion" id="accordionPanelsStayOpenExample4" data-aos="fade-up"
-                    data-aos-delay="300">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="panelsStayOpen-headingfive">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#panelsStayOpen-collapsefive" aria-expanded="true"
-                                    aria-controls="panelsStayOpen-collapsefive">
-                                    {{ __('translate.Locations') }}
-                                </button>
-                            </h2>
-                            <div id="panelsStayOpen-collapsefive" class="accordion-collapse collapse show"
-                                aria-labelledby="panelsStayOpen-headingfive">
-                                <div class="accordion-body">
-                                    <ul class="locations">
-                                        <li>
-                                            <a href="javascript:;">
-                                                <span>
-                                                    <svg width="18" height="22" viewBox="0 0 18 22" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M2.55 20.25C2.13579 20.25 1.8 20.5858 1.8 21C1.8 21.4142 2.13579 21.75 2.55 21.75V20.25ZM14.95 21.75C15.3642 21.75 15.7 21.4142 15.7 21C15.7 20.5858 15.3642 20.25 14.95 20.25V21.75ZM15.75 8.5C15.75 10.1981 14.6274 12.4022 13.0703 14.2376C12.3055 15.139 11.4701 15.9098 10.6819 16.4488C9.87165 17.0029 9.2019 17.25 8.75 17.25V18.75C9.65435 18.75 10.6315 18.3005 11.5286 17.687C12.4479 17.0584 13.3804 16.1906 14.2141 15.208C15.8538 13.2752 17.25 10.7292 17.25 8.5H15.75ZM8.75 17.25C8.31285 17.25 7.64989 16.992 6.83557 16.4004C6.0463 15.8269 5.20886 15.0085 4.44153 14.0574C2.8796 12.1213 1.75 9.81691 1.75 8.11111H0.25C0.25 10.3327 1.63915 12.9727 3.27409 14.9992C4.1052 16.0294 5.03573 16.9468 5.95389 17.6139C6.84698 18.2628 7.8309 18.75 8.75 18.75V17.25ZM1.75 8.11111C1.75 4.5023 5.07541 1.75 8.75 1.75V0.25C4.43487 0.25 0.25 3.4977 0.25 8.11111H1.75ZM8.75 1.75C12.3966 1.75 15.75 4.47727 15.75 8.5H17.25C17.25 3.52273 13.0931 0.25 8.75 0.25V1.75ZM11.1 8C11.1 9.21965 10.0712 10.25 8.75 10.25V11.75C10.8529 11.75 12.6 10.0941 12.6 8H11.1ZM8.75 10.25C7.42876 10.25 6.4 9.21965 6.4 8H4.9C4.9 10.0941 6.64707 11.75 8.75 11.75V10.25ZM6.4 8C6.4 6.78035 7.42876 5.75 8.75 5.75V4.25C6.64707 4.25 4.9 5.90594 4.9 8H6.4ZM8.75 5.75C10.0712 5.75 11.1 6.78035 11.1 8H12.6C12.6 5.90594 10.8529 4.25 8.75 4.25V5.75ZM2.55 21.75H14.95V20.25H2.55V21.75Z" />
-                                                    </svg>
-                                                </span>
-                                                {{ html_decode($car->address) }}
-                                            </a>
-
-
-
-                                            <iframe src="{{ html_decode($car->google_map) }}" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
-                                        </li>
-
-
-                                    </ul>
-
-
-
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
-
-
                     @if ($reviews->count() > 0)
                         <!-- Write Your Review -->
                         <div class="accordion aos-init aos-animate" id="accordionPanelsStayOpenExample5" data-aos="fade-up"
@@ -826,95 +740,27 @@
 
 
 
-                            <button type="submit" class="thm-btn-two" style="background-color: green">{{ __('WhatsApp') }}</button>
-                            <button type="submit" class="thm-btn-two" data-bs-toggle="modal" data-bs-target="#reservationModal">{{ __('Rent Now') }}</button>
+                            
+                            <div style="display: flex; align-items: center; gap: 70px;">
+                                
+                          
+                                <!-- زر احجز الان -->
+                                <button type="submit" class="thm-btn-two" 
+                                        style="width: 250px;" 
+                                        data-bs-toggle="modal" 
+                                        data-bs-target="#reservationModal">
+                                    {{ __('إحجز الأن') }}
+                                </button>
 
+                                  <!-- زر واتساب مع أيقونة أكبر -->
+                                <button type="submit" 
+                                style="background: none; border: none; color: #25D366; font-size: 50px; cursor: pointer;">
+                                <i class="fab fa-whatsapp"></i>
+                                </button>
+
+
+                            </div>
                         </div>
-
-                        {{-- <div class="auto-lone-item">
-                            <h3 class="auto-lone-head">{{ __('translate.Auto Loan Calculator') }}</h3>
-                            <p class="sub-taitel">
-                                {{ __('translate.You can calculate monthly loan amount using this calculator') }}</p>
-
-                            <form>
-                                <div class="auto-lone-form">
-                                    <div class="auto-lone-form-item">
-                                        <label for="loan_amount" class="form-label">{{ __('translate.Loan Amount') }}
-                                            <span>*</span></label>
-                                        <input type="text" class="form-control" id="loan_amount"
-                                            placeholder="{{ __('translate.Amount') }}">
-
-                                        <div class="icon">
-                                            <span>
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <circle cx="12" cy="12" r="10" stroke="#405FF2" stroke-width="1.5"/>
-                                            <path d="M14 10C14 8.89543 13.1046 8 12 8C10.8954 8 10 8.89543 10 10C10 11.1046 10.8954 12 12 12" stroke="#405FF2" stroke-width="1.5" stroke-linecap="round"/>
-                                            <path d="M12 12C13.1046 12 14 12.8954 14 14C14 15.1046 13.1046 16 12 16C10.8954 16 10 15.1046 10 14" stroke="#405FF2" stroke-width="1.5" stroke-linecap="round"/>
-                                            <path d="M12 6.5V8" stroke="#405FF2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                            <path d="M12 16V17.5" stroke="#405FF2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                            </svg>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="auto-lone-form-item">
-                                        <label for="interest_rate" class="form-label">{{ __('translate.Interest Rate') }}
-                                            <span>*</span></label>
-                                        <input type="text" class="form-control" id="interest_rate"
-                                            placeholder="{{ __('translate.Rate') }}">
-
-                                        <div class="icon">
-                                            <span>
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <circle cx="2" cy="2" r="2" transform="matrix(1 0 0 -1 14 18)" stroke="#405FF2" stroke-width="1.5"/>
-                                            <circle cx="2" cy="2" r="2" transform="matrix(1 0 0 -1 6 10)" stroke="#405FF2" stroke-width="1.5"/>
-                                            <path d="M19 5L4 20" stroke="#405FF2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                            </svg>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="auto-lone-form-item">
-                                        <label for="total_year" class="form-label">{{ __('translate.Loan Tern in Year') }}
-                                            <span>*</span></label>
-                                        <input type="text" class="form-control" id="total_year"
-                                            placeholder="{{ __('translate.Year') }}">
-
-                                        <div class="icon">
-                                            <span>
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M3 7.5C3 5.29086 4.79086 3.5 7 3.5H17C19.2091 3.5 21 5.29086 21 7.5V18C21 20.2091 19.2091 22 17 22H7C4.79086 22 3 20.2091 3 18V7.5Z" stroke="#405FF2" stroke-width="1.5"/>
-                                            <path d="M3 9H21" stroke="#405FF2" stroke-width="1.5" stroke-linecap="round"/>
-                                            <path d="M8 2L8 5" stroke="#405FF2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                            <path d="M16 2V5" stroke="#405FF2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                            <circle cx="12" cy="15" r="1" fill="#405FF2"/>
-                                            <circle cx="16" cy="15" r="1" fill="#405FF2"/>
-                                            <circle cx="8" cy="15" r="1" fill="#405FF2"/>
-                                            </svg>
-                                            </span>
-                                        </div>
-                                    </div>
-
-                                    <div class="auto-lone-form-btn">
-                                        <button id="calculate_btn" type="button" class="thm-btn-two">{{ __('translate.Loan Calculate') }}</button>
-                                        <button type="button" class="reset-now-btn" id="reset_btn">
-                                            <span>
-                                                <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M13 6.50442C13.0022 7.95669 12.5159 9.36769 11.6189 10.5114C10.7219 11.6551 9.46612 12.4653 8.05275 12.8122C6.63938 13.1592 5.15021 13.0227 3.82379 12.4248C2.49738 11.8268 1.41048 10.802 0.737207 9.51444C0.063938 8.22687 -0.156736 6.75109 0.110535 5.32351C0.377807 3.89593 1.11756 2.59917 2.21128 1.64095C3.305 0.68273 4.68941 0.118515 6.14271 0.0386867C7.59602 -0.0411418 9.03413 0.368036 10.2267 1.20067L10.1472 0.970075C10.0859 0.783733 10.1013 0.580728 10.19 0.405719C10.2788 0.23071 10.4335 0.0980331 10.6203 0.0368748C10.807 -0.0242835 11.0105 -0.00891303 11.1859 0.079605C11.3613 0.168123 11.4943 0.322538 11.5555 0.508879L12.2778 2.67073C12.3136 2.7791 12.3231 2.89441 12.3055 3.00716C12.2879 3.11992 12.2438 3.22689 12.1767 3.31929C12.1067 3.41752 12.0133 3.4967 11.9048 3.54957C11.7962 3.60245 11.6762 3.62733 11.5555 3.62195H9.38888C9.19734 3.62195 9.01364 3.54602 8.8782 3.41088C8.74275 3.27574 8.66666 3.09245 8.66666 2.90133C8.66927 2.7488 8.72033 2.60103 8.81248 2.47931C8.90463 2.35758 9.03311 2.26817 9.17944 2.22395C8.22939 1.63148 7.109 1.37068 5.99427 1.4825C4.87954 1.59433 3.83361 2.07244 3.02077 2.84176C2.20793 3.61107 1.67423 4.62799 1.5035 5.73279C1.33276 6.8376 1.53466 7.9677 2.07749 8.94558C2.62032 9.92347 3.47332 10.6937 4.50252 11.1354C5.53171 11.5771 6.67879 11.6651 7.76359 11.3857C8.84838 11.1063 9.80943 10.4753 10.4958 9.59179C11.1821 8.70826 11.5549 7.62228 11.5555 6.50442C11.5555 6.3133 11.6316 6.13 11.7671 5.99486C11.9025 5.85972 12.0862 5.7838 12.2778 5.7838C12.4693 5.7838 12.653 5.85972 12.7885 5.99486C12.9239 6.13 13 6.3133 13 6.50442Z" />
-                                                </svg>
-                                            </span>
-                                            {{ __('translate.Reset Now') }}
-                                        </button>
-                                    </div>
-
-
-                                    <p class="auto-lone-amount">{{ __('translate.Monthly Payment') }}: <span id="monthly_payment">{{ currency(0.00) }}</span></p>
-
-                                </div>
-
-
-                            </form>
-                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -1299,9 +1145,7 @@
             </div>
   
             <div class="d-grid">
-              <button type="submit" class="btn btn-success" style="background-color: blue">إرسال</button>
-            </div>
-          </form>
+                <button type="submit" class="btn btn-success" style="background-color: blue" id="submitReservation">إرسال</button>          </form>
         </div>
       </div>
     </div>
@@ -1312,6 +1156,70 @@
 @endif
   </div>
   
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.querySelector('#reservationModal form');
+        const modalContent = document.querySelector('#reservationModal .modal-content');
+        const submitBtn = document.getElementById('submitReservation');
+    
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+    
+            // عرض اللودينج
+            Swal.fire({
+                title: 'جاري إرسال طلبك...',
+                text: 'برجاء الانتظار قليلاً',
+                allowOutsideClick: false,
+                showConfirmButton: false,
+                didOpen: () => {
+                    Swal.showLoading();
+                }
+            });
+    
+            const formData = new FormData(form);
+    
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('حدث خطأ أثناء الإرسال');
+                }
+                return response.json();
+            })
+            .then(data => {
+                Swal.close(); // غلق اللودينج
+    
+                // إخفاء محتوى المودال
+                modalContent.innerHTML = `
+                    <div class="d-flex justify-content-center align-items-center" style="height: 300px;">
+                        <div class="text-center">
+                            <h3 class="mb-4" style="color: #28a745;">🎉 تم إرسال طلب الحجز بنجاح!</h3>
+                            <p class="mb-4">شكراً لك على ثقتك بنا.<br>سيتم التواصل معك خلال وقت قصير لتأكيد تفاصيل الحجز.</p>
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">موافق</button>
+                        </div>
+                    </div>
+                `;
+            })
+            .catch(error => {
+                Swal.close();
+                Swal.fire({
+                    icon: 'error',
+                    title: 'خطأ أثناء الإرسال ❌',
+                    text: 'حدثت مشكلة أثناء إرسال البيانات، برجاء المحاولة مرة أخرى لاحقاً.',
+                    showCloseButton: true,
+                    confirmButtonText: 'موافق'
+                });
+            });
+        });
+    });
+    </script>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {

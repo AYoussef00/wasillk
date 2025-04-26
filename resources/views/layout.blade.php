@@ -597,7 +597,7 @@
             <div class="row  footer-bb    align-items-center ">
                 <div class="col-lg-4 col-p-0" data-aos="fade-right" data-aos-delay="50">
                     <h2 class="newsletter-txt">
-                        {{ __('translate.Join Our') }} <span>{{ __('translate.Newsletter') }}</span> &
+                        {{ __('translate.Join Our') }} <span>{{ __('translate.Newsletter') }}</span>
                         {{ __('translate.Get updated.') }}
                     </h2>
                 </div>
@@ -650,9 +650,9 @@
                     </div>
 
                     <div class="footer-icon">
-                        <div class="text">
+                        {{-- <div class="text">
                             <h5>{{ __('translate.Follow Us') }}:</h5>
-                        </div>
+                        </div> --}}
 
                         <div class="footer-icon-item">
                             <div class="icon">
