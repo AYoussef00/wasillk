@@ -119,7 +119,7 @@
 
 
                             <!-- Condition  -->
-                            <div class="accordion" id="accordionPanelsStayOpenExample1">
+                            {{-- <div class="accordion" id="accordionPanelsStayOpenExample1">
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="panelsStayOpen-headingtwo">
                                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
@@ -175,11 +175,11 @@
                                     </div>
                                 </div>
 
-                            </div>
+                            </div> --}}
 
 
                             <!-- Offer  -->
-                            <div class="accordion" id="accordionPanelsStayOpenExample3">
+                            {{-- <div class="accordion" id="accordionPanelsStayOpenExample3">
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="panelsStayOpen-headingfour">
                                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
@@ -236,7 +236,7 @@
                                     </div>
                                 </div>
 
-                            </div>
+                            </div> --}}
 
                             <!-- Transmission -->
                             <div class="accordion" id="accordionPanelsStayOpenExample4">
@@ -365,10 +365,8 @@
                                                             <p class="text">{{ calculate_percentage($car->regular_price, $car->offer_price) }}% {{ __('translate.Off') }}</p>
                                                         @endif
 
-                                                        @if ($car->condition == 'New')
-                                                            <p class="text text-two ">{{ __('translate.New') }}</p>
-                                                        @else
-                                                            <p class="text text-two ">{{ __('translate.Used') }}</p>
+                                                        @if ($car->condition == 'New' || $car->condition == 'Used')
+                                                            <p class="text text-two ">{{ __('للإيجار') }}</p>
                                                         @endif
                                                     </div>
 
@@ -436,7 +434,7 @@
                                                 <a href="{{ route('listing', $car->slug) }}">
                                                     <h3>{{ html_decode($car->title) }}</h3>
                                                 </a>
-
+{{-- 
                                                 <div class="brand-car-inner-item-main">
                                                     <div class="brand-car-inner-item-two">
                                                         <div class="brand-car-inner-item-thumb">
@@ -482,7 +480,7 @@
                                                             {{ html_decode($car->engine_size) }}
                                                         </span>
                                                     </div>
-                                                </div>
+                                                </div> --}}
 
                                                 <div class="brand-car-btm-txt-btm">
                                                     <h6 class="brand-car-btm-txt"><span>{{ __('translate.Listed by') }} :</span>{{ html_decode($car?->dealer?->name) }}
