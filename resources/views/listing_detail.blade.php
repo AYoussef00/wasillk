@@ -1228,7 +1228,10 @@
         const totalDaysInput = document.getElementById('total_days');
         const totalAmountInput = document.querySelector('input[name="total_amount"]');
 
-        const carPricePerDay = {{ $car->regular_price ?? 0 }}; // تأكد إنك عندك هذا الحقل في الـ$car
+        // تمرير الأسعار من السيرفر للجافاسكريبت
+        const regularPrice = {{ $car->regular_price ?? 0 }};
+        const weeklyPrice = {{ $car->weekly_price ?? 0 }};
+        const monthlyPrice = {{ $car->monthly_price ?? 0 }};
 
         function calculateTotal() {
             const pickupDate = new Date(pickupDateInput.value);
@@ -1238,8 +1241,18 @@
                 const diffTime = Math.abs(returnDate - pickupDate);
                 const totalDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
+                let dailyPrice = regularPrice;
+
+                if (totalDays <= 7) {
+                    dailyPrice = regularPrice;
+                } else if (totalDays < 28) {
+                    dailyPrice = weeklyPrice;
+                } else {
+                    dailyPrice = monthlyPrice;
+                }
+
                 totalDaysInput.value = totalDays;
-                totalAmountInput.value = totalDays * carPricePerDay;
+                totalAmountInput.value = totalDays * dailyPrice;
             } else {
                 totalDaysInput.value = 0;
                 totalAmountInput.value = 0;

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App\Models\PendingRequest;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
+use App\Models\Car; 
 
 
 use Illuminate\Http\Request;
@@ -26,33 +28,51 @@ class BookingController extends Controller
             'pickup_date' => 'required|date',
             'return_date' => 'required|date|after:pickup_date',
             'delivery_method' => 'required',
-            'total_days' => 'required|integer',
-            'total_amount' => 'required|numeric',
             'driving_licence' => 'required|file|image',
             'national_id' => 'required|file|image',
             'car_id' => 'required|exists:cars,id',
         ]);
     
+        // حساب عدد الأيام
+        $start = Carbon::parse($request->pickup_date);
+        $end = Carbon::parse($request->return_date);
+        $total_days = $start->diffInDays($end);
+    
+        // استدعاء السيارة
+        $car = Car::findOrFail($request->car_id);
+    
+        // تحديد السعر اليومي
+        if ($total_days <= 7) {
+            $daily_price = $car->regular_price;
+        } elseif ($total_days < 28) {
+            $daily_price = $car->weekly_price;
+        } else {
+            $daily_price = $car->monthly_price;
+        }
+    
+        $total_amount = $daily_price * $total_days;
+    
+        // رفع الصور
         $licensePath = $request->file('driving_licence')->store('licenses', 'public');
         $idPath = $request->file('national_id')->store('ids', 'public');
     
+        // حفظ الحجز
         PendingRequest::create([
-            'car_id' => $request->car_id,
+            'car_id' => $car->id,
             'full_name' => $request->full_name,
             'email' => $request->email,
             'phone_number' => $request->phone_number,
             'pickup_date' => $request->pickup_date,
             'return_date' => $request->return_date,
             'delivery_method' => $request->delivery_method,
-            'total_days' => $request->total_days,
-            'total_amount' => $request->total_amount,
+            'total_days' => $total_days,
+            'total_amount' => $total_amount,
             'driving_licence' => $licensePath,
             'national_id' => $idPath,
         ]);
     
         return response()->json(['message' => 'تم الإرسال بنجاح']);
-        }
-
+    }
 
     public function showPendingRequests()
     {
