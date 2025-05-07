@@ -257,7 +257,7 @@ return array (
   '(High-Low)' => '(من الأعلى إلى الأقل)',
   'Brands' => 'العلامات التجارية',
   'Available Brand Car' => 'سيارات العلامات التجارية المتوفرة',
-  'Latest Car Listings' => 'أحدث قوائم السيارات',
+  'Latest Car Listings' => 'إختر سيارتك',
   'View More Car List' => 'عرض المزيد من السيارات',
   'Become a Dealer' => 'كن وكيلاً',
   'Our Featured Cars' => 'سياراتنا المميزة',

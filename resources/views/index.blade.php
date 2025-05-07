@@ -17,8 +17,10 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="banner-two-txt">
-                                    <span>{{ $homepage->home1_intro_short_title }}</span>
-                                    <h1 style="color: #3575a4;">{{ $homepage->home1_intro_title }}</h1>
+                                    <h1 style="color: #3575a4; font-family: 'Cairo', sans-serif;">{{ $homepage->home1_intro_title }}</h1>
+                                    <br>
+                                    <span style="font-family:'Cairo', sans-serif;">{{ $homepage->home1_intro_short_title }}</span>
+
                                 </div>                        
                             </div>
                         </div>
@@ -470,10 +472,11 @@
                                         </svg>
                                     </span>
                                 </div>
-                                <span>{{ __('translate.Available Brand Car') }}</span>
                             </div>
-                            <h2>{{ __('translate.Latest Car Listings') }}</h2>
-                        </div>
+                            <h2 style="font-family: 'Cairo', sans-serif; font-weight: 700;">
+                                {{ __('translate.Latest Car Listings') }}
+                              </h2>
+                                                      </div>
                     </div>
                 </div>
                 

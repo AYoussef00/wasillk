@@ -49,11 +49,15 @@
                                 </svg>
                             </span>
                         </div>
-                        <span>{{ $about_us->header }}</span>
-                    </div>
+                        <span style="font-family: 'Cairo', sans-serif; font-weight: 700;">
+                            {{ $about_us->header }}
+                          </span>
+                                              </div>
 
-                    <h2 class="about-taitel">{{ $about_us->title }}</h2>
-
+                    <h2 class="about-taitel" style="font-family: 'Cairo', sans-serif; font-weight: 700;">
+                        {{ $about_us->title }}
+                      </h2>
+                      
                     <div class="about_description">
                         {!! clean($about_us->description) !!}
                     </div>

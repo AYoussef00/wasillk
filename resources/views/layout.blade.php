@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800&display=swap" rel="stylesheet">
 
     <link rel="icon" href="{{ asset($setting->favicon) }}">
 
@@ -259,14 +260,29 @@
                                 <div class="menu">
                                     <ul>
                                         {{-- <li><a href="{{ route('faq') }}">{{ __(key: 'مساعدة') }}</a></li> --}}
-                                        <li><a href="{{ route('contact-us') }}">{{ __('إتصل بنا ') }}</a></li>
-                                        <li><a href="{{ route('about-us') }}">{{ __(key: 'نبذة عنا') }}</a></li>
-
-                                        <li><a href="{{ route('listings') }}">{{ __(key: 'المعرض') }}</a></li>
-
+                                        <li>
+                                            <a href="{{ route('contact-us') }}" style="font-family: 'Cairo', sans-serif; font-weight: 700;">
+                                              {{ __('إتصل بنا ') }}
+                                            </a>
+                                          </li>
+                                                                                  <li>
+                                            <a href="{{ route('about-us') }}" style="font-family: 'Cairo', sans-serif; font-weight: 700;">
+                                              {{ __('نبذة عنا') }}
+                                            </a>
+                                          </li>
+                                          
+                                        <li>
+                                            <a href="{{ route('listings') }}" style="font-family: 'Cairo', sans-serif; font-weight: 700;">
+                                              {{ __('المعرض') }}
+                                            </a>
+                                          </li>
+                                          
                                         @if ($setting->selected_theme == 'all_theme')
-                                            <li><a href="{{ route('home') }}">{{ __('الصفحة الرئيسية') }} <i class=""></i> </a>
-                                            </li>
+                                        <li>
+                                            <a href="{{ route('home') }}" style="font-family: 'Cairo', sans-serif; font-weight: 700;">
+                                              {{ __('الصفحة الرئيسية') }} <i class=""></i>
+                                            </a>
+                                          </li>                                            </li>
                                         @else
                                             <li><a href="{{ route('home') }}">{{ __('translate.Home') }}</a></li>
                                         @endif
@@ -593,13 +609,13 @@
 
         <div class="container">
             <div class="row  footer-bb    align-items-center ">
-                <div class="col-lg-4 col-p-0" data-aos="fade-right" data-aos-delay="50">
+                {{-- <div class="col-lg-4 col-p-0" data-aos="fade-right" data-aos-delay="50">
                     <h2 class="newsletter-txt">
                         {{ __('translate.Join Our') }} <span>{{ __('translate.Newsletter') }}</span>
                         {{ __('translate.Get updated.') }}
                     </h2>
-                </div>
-                <div class="col-lg-8 col-p-0" data-aos="fade-left" data-aos-delay="100">
+                </div> --}}
+                {{-- <div class="col-lg-8 col-p-0" data-aos="fade-left" data-aos-delay="100">
                     <div class="newsletter-sarch-box-main-item">
                         <div class="newsletter-sarch-box-main">
                             <form action="{{ route('newsletter-request') }}" class="newsletter-sarch-box" method="POST">
@@ -620,7 +636,7 @@
 
 
                     </div>
-                </div>
+                </div> --}}
             </div>
 
 
@@ -741,7 +757,7 @@
                                             </svg>
                                         </span>{{ __('translate.Our Blogs') }}</a>
                                     </li> --}}
-                                    <li>
+                                    {{-- <li>
                                         <a href="{{ route('join-as-dealer') }}">  <span>
                                             <svg width="13" height="10" viewBox="0 0 13 10" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -750,7 +766,7 @@
                                                     stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                         </span>{{ __('translate.Join as Dealer') }}</a>
-                                    </li>
+                                    </li> --}}
                                 </ul>
                             </div>
                         </div>
