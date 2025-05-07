@@ -89,7 +89,7 @@
 
 
     <!-- Categories-part-start -->
-    <section class="categories categories-three py-120px">
+    {{-- <section class="categories categories-three py-120px">
         <div class="container">
             <div class="row align-items-end">
                 <div class="col-lg-6 col-sm-8 col-md-8  ">
@@ -128,11 +128,11 @@
                 @endforeach
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- Categories-part-end -->
     <!--  vedio-part-start -->
 
-    <section class="vedio vedio-two ">
+    {{-- <section class="vedio vedio-two ">
         <div class="container vedio-bg" style="background: url({{ asset($homepage->video_bg_image) }});">
             <div class="row align-items-center">
                 <div class="col-lg-6 col-sm-6 ">
@@ -177,12 +177,12 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!--  vedio-part-end -->
 
 
     <!--  help-part-start -->
-    <section class="help help-inner  ">
+    {{-- <section class="help help-inner  ">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
@@ -274,7 +274,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!--  help-part-end -->
 
     <!--   Testimonial-part-start -->

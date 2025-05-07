@@ -308,7 +308,7 @@ return array (
   'Email Address' => 'عنوان البريد الإلكتروني',
   'Subscribe' => 'اشترك',
   'We only send interesting and relevant emails.' => 'نرسل فقط الرسائل المهمة والمفيدة.',
-  'Popular links' => 'روابط شائعة',
+  'Popular links' => 'روابط مفيدة',
   'Our Blogs' => 'مدوناتنا',
   'Terms & Conditions' => 'الشروط والأحكام',
   'Cookies' => 'ملفات تعريف الارتباط',

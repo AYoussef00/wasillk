@@ -9,7 +9,23 @@
     <main>
 
         <!-- banner-part-start  -->
-        <section class="banner-two" style="background-image: url({{ asset($homepage->home1_intro_bg) }});">
+
+
+                <!-- banner-part-start  -->
+                <section class="banner-two" style="background-color: black;">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="banner-two-txt">
+                                    <span>{{ $homepage->home1_intro_short_title }}</span>
+                                    <h1 style="color: #3575a4;">{{ $homepage->home1_intro_title }}</h1>
+                                </div>                        
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+        {{-- <section class="banner-two" style="background-image: url({{ asset($homepage->home1_intro_bg) }});">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
@@ -19,7 +35,7 @@
                         </div>
                     </div>
 
-                </div>
+                </div> --}}
 
                 {{-- <div class="row  justify-content-center">
                     <div class=" col-xxl-7 col-xl-12 col-lg-12">
@@ -392,26 +408,26 @@
                         </div>
                     </div>
                 </div> --}}
-            </div>
-        </section>
+            {{-- </div>
+        </section> --}}
 
         <!-- banner-part-end  -->
 
 
         <!-- Categories-part-start -->
-        <section class="categories categories-three  py-120px">
+        {{-- <section class="categories categories-three  py-120px">
             <div class="container"> 
                 <div class="row align-items-end">
                     <div class="col-lg-8 col-sm-8 col-md-8 text-end">
                         <h2 style="direction: rtl;">{{ __('translate.Explore Popular Brand') }}</h2>
-                    </div>
+                    </div> --}}
 
                     {{-- <div class="col-lg-4">
                         <div class="categories-three-view-btn">
                             <a href="{{ route('listings') }}" class="thm-btn-two">{{ __('translate.View All') }}</a>
                         </div>
                     </div> --}}
-                </div>
+                {{-- </div>
 
                 <div class="row g-3  mt-30px mt-32px-r  es ">
                     @foreach ($brands->take(6) as $index => $brand)
@@ -435,7 +451,7 @@
                 </div>
 
             </div>
-        </section>
+        </section> --}}
         <!-- Categories-part-end -->
 
 
@@ -457,55 +473,50 @@
                         </div>
 
                         <h2>{{ __('translate.Latest Car Listings') }}</h2>
-                    </div>
-
-                   
+                    </div> 
                 </div>
-
                 <div class="row mt-60px">
                     <div class="col-lg-12">
                         <div class="tab-content" id="pills-tabContent1111">
                             <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
                                  aria-labelledby="pills-home-tab">
                                  <div class="row g-3">
-                                    @foreach($used_cars as $car)
-                                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                                            <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden">
-                                                <div class="position-relative" style="height: 100%; width: 100%;">
-                                                    <img src="{{ getImageOrPlaceholder($car->thumb_image, '329x203') }}"
-                                                         alt="thumb"
-                                                         class="w-100 h-100"
-                                                         style="object-fit: cover;">
-                                                </div>
+                                    @foreach(array_merge($used_cars->toArray(), $used_cars->toArray(), $used_cars->toArray()) as $car)
+                                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                                        <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden">
+                                            <div class="position-relative" style="height: 100%; width: 100%;">
+                                                <img src="{{ getImageOrPlaceholder($car['thumb_image'], '329x203') }}"
+                                                     alt="thumb"
+                                                     class="w-100 h-100"
+                                                     style="object-fit: cover;">
+                                            </div>
                                 
-                                                <div class="card-body d-flex flex-column justify-content-between">
-                                                    <div>
-                                                        <div class="d-flex justify-content-between align-items-center mb-2">
-                                                            <span class="text-muted small">{{ $car?->brand?->name }}</span>
-                                                            <strong class="text-dark">
-                                                                {{ currency($car->offer_price ?? $car->regular_price) }}
-                                                            </strong>
-                                                        </div>
-                                                        <h5 class="card-title">
-                                                            <a href="{{ route('listing', $car->slug) }}" class="text-decoration-none text-dark">
-                                                                {{ html_decode($car->title) }}
-                                                            </a>
-                                                        </h5>
+                                            <div class="card-body d-flex flex-column justify-content-between">
+                                                <div>
+                                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                                        <span class="text-muted small">{{ $car['brand']['name'] }}</span>
+                                                        <strong class="text-dark">
+                                                            {{ currency($car['offer_price'] ?? $car['regular_price']) }}
+                                                        </strong>
                                                     </div>
-                                                    <div class="px-3 pb-3 text-end">
-                                                        <a href="https://wa.me/{{ $car->whatsapp_number ?? '966000000000' }}?text=مرحبا، أود الاستفسار عن السيارة {{ urlencode($car->title) }}"
-                                                           target="_blank"
-                                                           class="btn p-0 border-0 bg-transparent">
-                                                            <img src="{{ asset('frontend/assets/images/icon/whatsapp.png') }}" alt="WhatsApp" width="40" height="40">
+                                                    <h5 class="card-title">
+                                                        <a href="{{ route('listing', $car['slug']) }}" class="text-decoration-none text-dark">
+                                                            {{ html_decode($car['title']) }}
                                                         </a>
-                                                    </div>
+                                                    </h5>
+                                                </div>
+                                                <div class="px-3 pb-3 text-end">
+                                                    <a href="https://wa.me/{{ $car['whatsapp_number'] ?? '966000000000' }}?text=مرحبا، أود الاستفسار عن السيارة {{ urlencode($car['title']) }}"
+                                                       target="_blank"
+                                                       class="btn p-0 border-0 bg-transparent">
+                                                        <img src="{{ asset('frontend/assets/images/icon/whatsapp.png') }}" alt="WhatsApp" width="40" height="40">
+                                                    </a>
                                                 </div>
                                             </div>
                                         </div>
-                                    @endforeach
+                                    </div>
+                                @endforeach                                
                                 </div>
-                                                                
-
                             </div>
                             <div class="tab-pane fade" id="pills-profile" role="tabpanel"
                                  aria-labelledby="pills-profile-tab">
@@ -562,10 +573,6 @@
                                                                 </a>
 
                                                             @endif
-
-
-                                                            <a href="{{ route('add-to-compare', $car->id) }}"
-                                                               class="icon">
                                                             <span>
                                                                 <svg width="18" height="20" viewBox="0 0 18 20"
                                                                      fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -680,6 +687,7 @@
                         </div>
                     </div>
                 </div>
+                
             </div>
         </section>
         <!--  Brand Car-part-end -->
