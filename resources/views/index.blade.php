@@ -458,23 +458,25 @@
         <!--  Brand Car-part-start -->
         <section class="brand-car brand-car-two py-120px  ">
             <div class="container">
-                <div class="row align-items-end">
-                    <div class="col-lg-6 col-sm-6  col-md-6">
-                        <div class="taitel two">
-                            <div class="taitel-img">
-                            <span><svg width="188" height="6" viewBox="0 0 188 6" fill="none"
-                                       xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1 5C26.4245 1.98151 99.2187 -2.24439 187 5" stroke="#405FF2" stroke-width="2"
-                                      stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                                </span>
+                <div class="d-flex justify-content-center align-items-center min-vh-10">
+                    <div class="row align-items-end text-center">
+                        <div class="col-lg-12">
+                            <div class="taitel two mb-3">
+                                <div class="taitel-img mb-2">
+                                    <span>
+                                        <svg width="188" height="6" viewBox="0 0 188 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M1 5C26.4245 1.98151 99.2187 -2.24439 187 5" stroke="#405FF2" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                </div>
+                                <span>{{ __('translate.Available Brand Car') }}</span>
                             </div>
-                            <span>{{ __('translate.Available Brand Car') }}</span>
+                            <h2>{{ __('translate.Latest Car Listings') }}</h2>
                         </div>
-
-                        <h2>{{ __('translate.Latest Car Listings') }}</h2>
-                    </div> 
+                    </div>
                 </div>
+                
                 <div class="row mt-60px">
                     <div class="col-lg-12">
                         <div class="tab-content" id="pills-tabContent1111">
