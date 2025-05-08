@@ -1095,7 +1095,7 @@
     text-align: center;
 }
 
-.banner-two .banner-two-txt span {
+ .banner-two .banner-two-txt span {
     font-size: 26px;
     font-weight: 500;
     line-height: 24px;
@@ -1103,7 +1103,7 @@
     font-family: var(--DMSans);
 }
 
-.banner-two .banner-two-txt h1 {
+ .banner-two .banner-two-txt h1 {
     font-family: var(--DMSans);
     font-size: 80px;
     font-weight: 700;
@@ -1162,12 +1162,12 @@
     position: relative;
 }
 
-.banner-two .banner-car .banner-car-thumb {
+ .banner-two .banner-car .banner-car-thumb {
     height: 525px;
     position: absolute;
     top: 30px;
     left: 0;
-}
+} 
 
 .banner-two .banner-car .banner-car-thumb img {
     width: 100%;
@@ -1411,6 +1411,7 @@
     width: 720px;
     height: 318px;
 }
+
 
 .brand-car .taitel .taitel-img {
     position: absolute;

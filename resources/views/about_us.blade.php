@@ -58,9 +58,10 @@
                         {{ $about_us->title }}
                       </h2>
                       
-                    <div class="about_description">
+                      <div class="about_description" style="font-family: 'Cairo', sans-serif; font-weight: 700;">
                         {!! clean($about_us->description) !!}
                     </div>
+                    
                     <div class="about-item-main">
                         <div class="about-item">
                             <div class="icon">

@@ -5,6 +5,37 @@
     <meta name="description" content="{!! strip_tags(clean($seo_setting->seo_description)) !!}">
 @endsection
 
+<style>
+    .sticky-note {
+  background: #fff9c4;
+  border: 1px solid #f0e68c;
+  border-radius: 8px;
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
+  min-height: 200px;
+  transition: transform 0.2s;
+}
+
+.sticky-note:hover {
+  transform: rotate(-1deg) scale(1.02);
+}
+
+.pin-icon {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 24px;
+  color: #c62828;
+}
+
+.note-text {
+  font-family: 'Cairo', sans-serif;
+  font-weight: 500;
+  color: #333;
+}
+
+</style>
+
 @section('body-content')
     <main>
 
@@ -417,47 +448,67 @@
 
 
         <!-- Categories-part-start -->
-        {{-- <section class="categories categories-three  py-120px">
+        <section class="categories categories-three py-120px">
             <div class="container"> 
-                <div class="row align-items-end">
-                    <div class="col-lg-8 col-sm-8 col-md-8 text-end">
-                        <h2 style="direction: rtl;">{{ __('translate.Explore Popular Brand') }}</h2>
-                    </div> --}}
-
-                    {{-- <div class="col-lg-4">
-                        <div class="categories-three-view-btn">
-                            <a href="{{ route('listings') }}" class="thm-btn-two">{{ __('translate.View All') }}</a>
-                        </div>
-                    </div> --}}
-                {{-- </div>
-
-                <div class="row g-3  mt-30px mt-32px-r  es ">
-                    @foreach ($brands->take(6) as $index => $brand)
-                        <div class="col-xl-2 col-xl-2 col-lg-4 col-6 col-md-6" data-aos="fade-right"
-                             data-aos-delay="50">
-                            <div class="categories-logo">
-                                <a href="{{ route('listings', ['brands[]' => $brand->id]) }}"
-                                   class="categories-logo-thumb">
-                                    <img src="{{ getImageOrPlaceholder($brand->image, '180x90') }}" alt="logo">
-                                </a>
-                                <div class="categories-logo-txt">
-                                    <a href="{{ route('listings', ['brands[]' => $brand->id]) }}">
-                                        <p>{{ $brand->name }}</p>
-                                    </a>
-                                    <h5>{{ $brand->total_car }}</h5>
-                                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 col-md-10 text-center">
+                        <h2><i class="pin-icon"></i> لماذا تختار وصللك</h2>                    </div>
+                </div>
+        
+                @php
+                    $notes = [
+                        'نصيحة اليوم: لا تؤجل عمل اليوم إلى الغد.',
+                        'تذكير: راجع بريدك الإلكتروني قبل نهاية اليوم.',
+                        'معلومة: السيارة تُستهلك أقل عند القيادة بثبات.',
+                        'اقتباس: النجاح لا يأتي إلا لمن يستحقه.'
+                    ];
+                @endphp
+        
+                <div class="row justify-content-center mt-4">
+                    @foreach ($notes as $note)
+                        <div class="col-md-3 col-sm-6 mb-4">
+                            <div class="sticky-note p-4 text-center">
+                                <div class="pin-icon">📌</div>
+                                <p class="note-text">{{ $note }}</p>
                             </div>
                         </div>
                     @endforeach
-
                 </div>
-
             </div>
-        </section> --}}
-        <!-- Categories-part-end -->
+        </section>
+        <!-- Categories-pa-end -->
 
 
         <!--  Brand Car-part-start -->
+        {{-- @php
+        $notes = [
+            'نصيحة اليوم: لا تؤجل عمل اليوم إلى الغد.',
+            'تذكير: راجع بريدك الإلكتروني قبل نهاية اليوم.',
+            'معلومة: السيارة تُستهلك أقل عند القيادة بثبات.',
+            'اقتباس: النجاح لا يأتي إلا لمن يستحقه.'
+        ];
+    @endphp
+
+     
+    
+    <section class="container my-5">
+        <div class="row justify-content-center">
+            @foreach ($notes as $note)
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="sticky-note  p-4">
+                        <div class="pin-icon">📌</div>
+                        <p class="note-text">
+                            {{ $note }}
+                        </p>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </section>
+     --}}
+          
+
+
         <section class="brand-car brand-car-two py-120px  ">
             <div class="container">
                 <div class="d-flex justify-content-center align-items-center min-vh-10">
@@ -511,7 +562,7 @@
                                                     </h5>
                                                 </div>
                                                 <div class="px-3 pb-3 text-end">
-                                                    <a href="https://wa.me/{{ $car['whatsapp_number'] ?? '966000000000' }}?text=مرحبا، أود الاستفسار عن السيارة {{ urlencode($car['title']) }}"
+                                                    <a href="https://wa.me/{{ $car['whatsapp_number'] ?? '966558588097' }}?text=مرحبا، أود الاستفسار عن السيارة {{ urlencode($car['title']) }}"
                                                        target="_blank"
                                                        class="btn p-0 border-0 bg-transparent">
                                                         <img src="{{ asset('frontend/assets/images/icon/whatsapp.png') }}" alt="WhatsApp" width="40" height="40">

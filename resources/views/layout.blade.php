@@ -84,7 +84,7 @@
     <header class="header header-two inner-header">
     @endif
         <div class="container header-border ">
-            <div class="row      align-items-center">
+            <div class="row align-items-center">
                 <div class="col-lg-7 col-p-0">
                     <div class="header-left-item">
                         <div class="header-left-inner">
@@ -271,11 +271,13 @@
                                             </a>
                                           </li>
                                           
-                                        <li>
-                                            <a href="{{ route('listings') }}" style="font-family: 'Cairo', sans-serif; font-weight: 700;">
-                                              {{ __('المعرض') }}
-                                            </a>
-                                          </li>
+                                        
+                                            {{-- {{ route('listings') }} --}}
+                                            <li>
+                                                <a href="javascript:void(0);" style="font-family: 'Cairo', sans-serif; font-weight: 700;">
+                                                  {{ __('المعرض') }}
+                                                </a>
+                                              </li>
                                           
                                         @if ($setting->selected_theme == 'all_theme')
                                         <li>
