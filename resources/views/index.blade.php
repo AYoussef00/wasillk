@@ -457,17 +457,17 @@
         
                 @php
                     $notes = [
-                        'نصيحة اليوم: لا تؤجل عمل اليوم إلى الغد.',
-                        'تذكير: راجع بريدك الإلكتروني قبل نهاية اليوم.',
-                        'معلومة: السيارة تُستهلك أقل عند القيادة بثبات.',
-                        'اقتباس: النجاح لا يأتي إلا لمن يستحقه.'
+                        'اسطول سيارات اقتصادية متنوعة',
+                        'سيارتك توصلك لعندك',
+                        'إجراءات سهلة',
+                        'سهولة الحجز'
                     ];
                 @endphp
         
                 <div class="row justify-content-center mt-4">
                     @foreach ($notes as $note)
                         <div class="col-md-3 col-sm-6 mb-4">
-                            <div class="sticky-note p-4 text-center">
+                            <div class="sticky-note p-4 text-center d-flex justify-content-center align-items-center flex-column">
                                 <div class="pin-icon">📌</div>
                                 <p class="note-text">{{ $note }}</p>
                             </div>
