@@ -16,16 +16,16 @@
 }
 
 .sticky-note:hover {
-  transform: rotate(-1deg) scale(1.02);
+  transform: scale(1.02);
 }
 
 .pin-icon {
-  position: absolute;
-  top: -10px;
-  left: 50%;
-  transform: translateX(-50%);
+  position: sticky;
+  top: 0;
+  z-index: 10;
   font-size: 24px;
   color: #c62828;
+  pointer-events: none;
 }
 
 .note-text {
@@ -537,7 +537,7 @@
                             <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
                                  aria-labelledby="pills-home-tab">
                                  <div class="row g-3">
-                                    @foreach(array_merge($used_cars->toArray(), $used_cars->toArray(), $used_cars->toArray()) as $car)
+                                    @foreach($used_cars as $car)
                                     <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                                         <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden">
                                             <div class="position-relative" style="height: 100%; width: 100%;">

@@ -129,4 +129,14 @@ class BookingController extends Controller
     }
 
 
+    public function destroy($id)
+    {
+        DB::table('pending_requests')->where('id', $id)->delete();
+        return redirect()->back()->with('success', 'Booking deleted successfully.');
+    }
+
+    
+
+
+
 }

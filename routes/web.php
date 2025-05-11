@@ -236,3 +236,5 @@ Route::post('/pending-requests', [BookingController::class, 'store'])->name('pen
 Route::patch('/requests/{id}/approve', [BookingController::class, 'approve'])->name('requests.approve');
 // routes/web.php
 Route::get('/confirmed-requests', [BookingController::class, 'confirmed'])->name('requests.confirmed');
+
+Route::delete('/requests/{id}', [BookingController::class, 'destroy'])->name('requests.destroy');

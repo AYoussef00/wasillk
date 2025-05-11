@@ -258,8 +258,13 @@
 
 
                                 <div class="menu">
-                                    <ul>
+                                    <ul style="font-size: 14px; display: flex; gap: 18px;">
                                         {{-- <li><a href="{{ route('faq') }}">{{ __(key: 'مساعدة') }}</a></li> --}}
+                                        <li>
+                                            <a href="https://maps.app.goo.gl/J1FPhWPzNBLq8qXC9?g_st=iw" style="font-family: 'Cairo', sans-serif; font-weight: 700;">
+                                              {{ __('موقعنا') }}
+                                            </a>
+                                          </li>
                                         <li>
                                             <a href="{{ route('contact-us') }}" style="font-family: 'Cairo', sans-serif; font-weight: 700;">
                                               {{ __('إتصل بنا ') }}
@@ -670,7 +675,7 @@
 
                         <div class="footer-icon-item">
                             <div class="icon">
-                                <a href="{{ $setting->snapchat }}" target="_blank">
+                                <a href="https://www.tiktok.com/@wasil.ksa?_t=ZS-8w9sK5UCf28&_r=1" target="_blank">
                                     <img src="{{ asset('icons/snap.png') }}" alt="TikTok" width="27" height="27">
 
                                 </a>
@@ -682,8 +687,6 @@
                                     <img src="{{ asset('icons/images.png') }}" alt="TikTok" width="27" height="27">
                                 </a>
                             </div>
-                            
-                            
                             <div class="icon">
                                 <a href="{{ $setting->instagram }}" target="_blank">
                                     <span>
@@ -746,6 +749,16 @@
                                                     stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                         </span>{{ __('translate.Contact Us') }}</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://maps.app.goo.gl/J1FPhWPzNBLq8qXC9?g_st=iw">  <span>
+                                            <svg width="13" height="10" viewBox="0 0 13 10" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M8.62856 9L12.2952 5M12.2952 5L8.62856 0.999999M12.2952 5L1.29523 5"
+                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </span>{{ __('موقعنا') }}</a>
                                     </li>
                                     {{-- <li>
                                         <a href="{{ route('blogs') }}">  <span>

@@ -58,7 +58,7 @@
                                                                     @method('PATCH')
                                                                     <button type="submit" class="btn btn-success btn-sm" style="font-size: 12px;">قبول</button>
                                                                 </form>
-                                                                <form action="#" method="POST" style="display:inline-block;">
+                                                                <form action="{{ route('requests.destroy', $request->id) }}" method="POST" style="display:inline-block;">
                                                                     @csrf
                                                                     @method('DELETE')
                                                                     <button type="submit" class="btn btn-danger btn-sm" style="font-size: 12px;">رفض</button>
