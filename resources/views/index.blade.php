@@ -452,7 +452,7 @@
             <div class="container"> 
                 <div class="row justify-content-center">
                     <div class="col-lg-8 col-md-10 text-center">
-                        <h2><i class="pin-icon"></i> لماذا تختار وصللك</h2>                    </div>
+                        <h2 style="font-family: 'Cairo', sans-serif;"><i class="pin-icon"></i> لماذا تختار وصللك</h2>                    </div>
                 </div>
         
                 @php
