@@ -682,7 +682,7 @@
                             </div>
                             
                             <div class="icon">
-                                <a href="{{ $setting->tiktok }}" target="_blank">
+                                <a href="https://www.tiktok.com/@wasil.ksa?_t=ZS-8w9sK5UCf28&_r=1" target="_blank">
                                     <!-- تغيير الحجم مباشرة داخل عنصر الصورة -->
                                     <img src="{{ asset('icons/images.png') }}" alt="TikTok" width="27" height="27">
                                 </a>
