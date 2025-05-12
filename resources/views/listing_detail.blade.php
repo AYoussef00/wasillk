@@ -8,81 +8,38 @@
 @endsection
 
 @section('body-content')
-
 <main>
     <!-- banner-part-start  -->
     <section class="inner-banner">
     <div class="inner-banner-img" style=" background-image: url({{ asset($breadcrumb) }}) ;"></div>
         <div class="container">
         <div class="col-lg-12">
-            <div class="inner-banner-df">
-                <nav aria-label="breadcrumb">
-                
-                </nav>
-            </div>
+
             </div>
         </div>
     </section>
-    <!-- banner-part-end -->
-    <!-- Inventory Details-part-start -->
-
-
     <section class="inventory-details py-120px">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-md-7">
                     <div class="row">
-                        <div class="col-lg-9 col-sm-6 col-md-12">
-                            <div class="inventory-details-top-taitel">
-                                <h5>{{ __('translate.Brand') }} : {{ $car?->brand?->name }}</h5>
-                                <span></span>
-                                <h5>{{ __('translate.Views') }} : {{ $car->total_view }}</h5>
-                            </div>
-
-
+                        {{-- <div class="col-lg-9 col-sm-6 col-md-12">
                             <h2 class="inventory-details-taitel">{{ html_decode($car->title) }}</h2>
-
-
-                        </div>
-
-                        <div class="col-lg-3  col-sm-6 col-md-12">
-
-
-                            <div class="inventory-details-right-btn two">
-                                <a href="javascript:;" class="price-btn">
-                                    @if ($car->offer_price)
-                                        {{ currency($car->offer_price) }}
-                                    @else
-                                        {{ currency($car->regular_price) }}
-                                    @endif
-                                </a>
-
-                            </div>
-                        </div>
+                        </div> --}}
+                       
                     </div>
-
-
                     <div class="row">
-
-
-
-
                         <div class="inventory-details-slick-for">
-
-
-
                             @foreach ($galleries as $gallery)
                                 <div class="inventory-details-slick-img">
 
                                         <div class="inventory-details-slick-img-tag">
                                         <div class="icon-main">
-
                                             <a href="javascript:;" class="icon before_auth_wishlist">
                                             <span>
                                             <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M9.61204 2.324L9 2.96329L8.38796 2.324C6.69786 0.558667 3.95767 0.558666 2.26757 2.324C0.577476 4.08933 0.577475 6.95151 2.26757 8.71684L7.77592 14.4704C8.45196 15.1765 9.54804 15.1765 10.2241 14.4704L15.7324 8.71684C17.4225 6.95151 17.4225 4.08934 15.7324 2.324C14.0423 0.558667 11.3021 0.558666 9.61204 2.324Z" stroke-width="1.3" stroke-linejoin="round"></path>
                                             </svg>
-
                                             </span>
                                             </a>
                                             <a href="http://localhost/carbaz/add-to-compare/13" class="icon">
@@ -95,8 +52,6 @@
                                             </a>
                                             </div>
                                         </div>
-
-
                                     <img src="{{ asset($gallery->image) }}" alt="img">
                                 </div>
                             @endforeach
@@ -667,31 +622,17 @@
                                     </h3>
                                     {{-- <p>{{ __(key: 'translate.Member Since') }} {{ $dealer->created_at->format('F Y') }} </p> --}}
                                 </div>
-                                <div class="auto-sales-text-right">
-                                    <h6>{{ __('translate.Total Cars') }} {{ $dealer->total_car }}</h6>
-                                    <p>
-                                        <span>
-                                            <svg width="53" height="11" viewBox="0 0 53 11" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M5.3 0L6.48992 3.80041H10.3406L7.22534 6.14919L8.41526 9.94959L5.3 7.60081L2.18474 9.94959L3.37466 6.14919L0.2594 3.80041H4.11007L5.3 0Z" />
-                                                <path
-                                                    d="M15.8996 0L17.0895 3.80041H20.9402L17.8249 6.14919L19.0149 9.94959L15.8996 7.60081L12.7843 9.94959L13.9743 6.14919L10.859 3.80041H14.7097L15.8996 0Z" />
-                                                <path
-                                                    d="M26.4992 0L27.6891 3.80041H31.5398L28.4246 6.14919L29.6145 9.94959L26.4992 7.60081L23.384 9.94959L24.5739 6.14919L21.4586 3.80041H25.3093L26.4992 0Z" />
-                                                <path
-                                                    d="M37.1008 0L38.2907 3.80041H42.1414L39.0261 6.14919L40.216 9.94959L37.1008 7.60081L33.9855 9.94959L35.1754 6.14919L32.0602 3.80041H35.9109L37.1008 0Z" />
-                                                <path
-                                                    d="M47.7004 0L48.8903 3.80041H52.741L49.6257 6.14919L50.8157 9.94959L47.7004 7.60081L44.5851 9.94959L45.7751 6.14919L42.6598 3.80041H46.5105L47.7004 0Z" />
-                                            </svg>
-                                        </span>
-                                        ({{ $total_dealer_rating }})
-                                    </p>
-                                </div>
+                                
                             </div>
                         </div>
                             <div class="auto-sales-contact">
                                 <ul>
+                                   <li>
+                                       <span style="font-size: 24px; font-weight: bold; display: flex;">
+                                            {{ html_decode($car->title . ' ' . $car->year) }}
+                                            <span style="margin-left: auto; font-weight: bold;">{{ html_decode($car->regular_price) }}</span>
+                                        </span>
+                                    </li>
                                     <li>
                                         <a href="tel:{{ html_decode($dealer->phone) }}">
                                             <span>

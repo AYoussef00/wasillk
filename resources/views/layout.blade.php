@@ -81,7 +81,7 @@
     @if (Route::is('home'))
     <header class="header {{ Session::get('selected_theme') != 'theme_three' ? 'header-two' : ''  }}  {{ Session::get('selected_theme') == 'theme_two' ? 'header-three' : ''  }}">
     @else
-    <header class="header header-two inner-header">
+    <header class="header header-two inner-header" style="background-color: black; color: white;">
     @endif
         <div class="container header-border ">
             <div class="row align-items-center">
@@ -238,7 +238,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 col-p-0">
-                        <div class="nav-main">
+                        <div class="nav-main" style="background-color: black; color: white; width: 100vw; margin-left: calc(-50vw + 50%);">
                             <div class="nav-left">
                                 <div class="logo">
                                     <a href="{{ route('home') }}">
@@ -258,20 +258,20 @@
 
 
                                 <div class="menu">
-                                    <ul style="font-size: 14px; display: flex; gap: 18px;">
+                                    <ul style="font-size: 14px; display: flex; gap: 18px; color: white;">
                                         {{-- <li><a href="{{ route('faq') }}">{{ __(key: 'مساعدة') }}</a></li> --}}
                                         <li>
-                                            <a href="https://maps.app.goo.gl/J1FPhWPzNBLq8qXC9?g_st=iw" style="font-family: 'Cairo', sans-serif; font-weight: 700;">
+                                            <a href="https://maps.app.goo.gl/J1FPhWPzNBLq8qXC9?g_st=iw" style="font-family: 'Cairo', sans-serif; font-weight: 700; color: white;">
                                               {{ __('موقعنا') }}
                                             </a>
                                           </li>
                                         <li>
-                                            <a href="{{ route('contact-us') }}" style="font-family: 'Cairo', sans-serif; font-weight: 700;">
+                                            <a href="{{ route('contact-us') }}" style="font-family: 'Cairo', sans-serif; font-weight: 700; color: white;">
                                               {{ __('إتصل بنا ') }}
                                             </a>
                                           </li>
-                                                                                  <li>
-                                            <a href="{{ route('about-us') }}" style="font-family: 'Cairo', sans-serif; font-weight: 700;">
+                                        <li>
+                                            <a href="{{ route('about-us') }}" style="font-family: 'Cairo', sans-serif; font-weight: 700; color: white;">
                                               {{ __('نبذة عنا') }}
                                             </a>
                                           </li>
@@ -279,17 +279,17 @@
                                         
                                             {{-- {{ route('listings') }} --}}
                                             <li>
-                                                <a href="javascript:void(0);" style="font-family: 'Cairo', sans-serif; font-weight: 700;">
+                                                <a href="javascript:void(0);" style="font-family: 'Cairo', sans-serif; font-weight: 700; color: white;">
                                                   {{ __('المعرض') }}
                                                 </a>
                                               </li>
                                           
                                         @if ($setting->selected_theme == 'all_theme')
                                         <li>
-                                            <a href="{{ route('home') }}" style="font-family: 'Cairo', sans-serif; font-weight: 700;">
+                                            <a href="{{ route('home') }}" style="font-family: 'Cairo', sans-serif; font-weight: 700; color: white;">
                                               {{ __('الصفحة الرئيسية') }} <i class=""></i>
                                             </a>
-                                          </li>                                            </li>
+                                          </li>
                                         @else
                                             <li><a href="{{ route('home') }}">{{ __('translate.Home') }}</a></li>
                                         @endif
