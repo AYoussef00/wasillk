@@ -369,20 +369,20 @@
     <!-- mobile navigation start -->
     <header class="mobile-header @if (Route::is('home')) {{ Session::get('selected_theme') == 'theme_two' ? 'two' : '' }} {{ Session::get('selected_theme') == 'theme_three' ? 'three' : '' }}  @endif">
         <div class="container-full">
-            <div class="mobile-header__container">
+            <div class="mobile-header__container d-flex justify-content-between align-items-center py-2">
                 <div class="p-left">
                     <div class="logo">
                         <a href="{{ route('home') }}">
                             @if (Route::is('home'))
                                 @if (Session::get('selected_theme') == 'theme_two')
-                                    <img src="{{ asset($setting->logo) }}" alt="logo">
+                                    <img src="{{ asset($setting->logo) }}" alt="logo" class="mt-2" style="max-height: 50px;">
                                 @elseif (Session::get('selected_theme') == 'theme_three')
-                                <img src="{{ asset($setting->logo) }}" alt="logo">
+                                    <img src="{{ asset($setting->logo) }}" alt="logo" class="mt-2" style="max-height: 50px;">
                                 @else
-                                    <img src="{{ asset($setting->logo) }}" alt="logo">
+                                    <img src="{{ asset($setting->logo) }}" alt="logo" class="mt-2" style="max-height: 50px;">
                                 @endif
                             @else
-                                <img src="{{ asset($setting->logo) }}" alt="logo">
+                                <img src="{{ asset($setting->logo) }}" alt="logo" class="mt-2" style="max-height: 50px;">
                             @endif
                         </a>
                     </div>
@@ -613,6 +613,7 @@
     @else
     <footer class="footer footer-two">
     @endif
+        <div style="font-family: 'Cairo', sans-serif;">
 
         <div class="container">
             <div class="row  footer-bb    align-items-center ">
@@ -708,12 +709,12 @@
                     <div class="row footer-ml">
                         <div class="col-xl-4 col-lg-4 col-sm-6 col-md-4" data-aos="fade-up" data-aos-delay="200">
                             <div class="footer-item-text">
-                                <h3>{{ __('translate.Popular links') }}</h3>
+                                <h3 style="font-family: 'Cairo', sans-serif;">{{ __('translate.Popular links') }}</h3>
                             </div>
-                            <div class="footer-item-text-link">
+                            <div class="footer-item-text-link" style="font-family: 'Cairo', sans-serif;">
                                 <ul>
                                     <li>
-                                        <a href="{{ route('about-us') }}">  <span>
+                                        <a href="{{ route('about-us') }}" style="font-family: 'Cairo',sans-serif;">  <span>
                                             <svg width="13" height="10" viewBox="0 0 13 10" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <path
@@ -723,7 +724,7 @@
                                         </span>{{ __('translate.About Us') }}</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('contact-us') }}">  <span>
+                                        <a href="{{ route('contact-us') }}" style="font-family: 'Cairo',sans-serif;">  <span>
                                             <svg width="13" height="10" viewBox="0 0 13 10" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <path
@@ -733,7 +734,7 @@
                                         </span>{{ __('translate.Contact Us') }}</a>
                                     </li>
                                     <li>
-                                        <a href="https://maps.app.goo.gl/J1FPhWPzNBLq8qXC9?g_st=iw">  <span>
+                                        <a href="https://maps.app.goo.gl/J1FPhWPzNBLq8qXC9?g_st=iw" style="font-family: 'Cairo',sans-serif;">  <span>
                                             <svg width="13" height="10" viewBox="0 0 13 10" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <path
@@ -822,11 +823,11 @@
 
                             <div class="footer-item-text-link two">
                                 <div class="footer-item-text">
-                                    <h3>{{ __('translate.Contact Us') }}</h3>
+                                    <h3 style="font-family: 'Cairo',sans-serif;">{{ __('translate.Contact Us') }}</h3>
                                 </div>
                                 <ul>
                                     <li>
-                                        <a href="tel:{{ $setting->phone }}">
+                                        <a href="tel:{{ $setting->phone }}" style="font-family: 'Cairo',sans-serif;">
                                             <span>
                                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M3 1.75C2.30964 1.75 1.75 2.30964 1.75 3C1.75 11.4223 8.57766 18.25 17 18.25C17.6904 18.25 18.25 17.6904 18.25 17V15.3541C18.25 14.8429 17.9388 14.3833 17.4642 14.1935L15.4301 13.3798C14.8265 13.1384 14.1386 13.3999 13.8478 13.9814L13.6708 14.3354C13.5196 14.6379 13.1846 14.8018 12.8529 14.7354L13 14C12.8529 14.7354 12.8532 14.7355 12.8529 14.7354L12.8519 14.7352L12.8507 14.735L12.8475 14.7343L12.8385 14.7325L12.8097 14.7263C12.7859 14.721 12.7529 14.7135 12.7114 14.7034C12.6285 14.6832 12.5115 14.6528 12.3665 14.6101C12.0768 14.525 11.6734 14.3903 11.2046 14.1894C10.2704 13.789 9.05609 13.1167 7.96967 12.0303C6.88325 10.9439 6.21099 9.72958 5.81064 8.79544C5.60973 8.32664 5.47504 7.92316 5.38985 7.6335C5.34721 7.48851 5.31682 7.37154 5.29664 7.28859C5.28655 7.2471 5.279 7.21408 5.27374 7.19026L5.26753 7.1615L5.26566 7.15247L5.26501 7.14932L5.26477 7.14809C5.26472 7.14785 5.26456 7.14709 6 7L5.26456 7.14709C5.19824 6.81544 5.36208 6.48043 5.66459 6.32918L6.01861 6.15217C6.60008 5.86143 6.86163 5.17351 6.62018 4.5699L5.80653 2.53576C5.6167 2.06119 5.15706 1.75 4.64593 1.75H3ZM6.88322 7.38709C8.02553 6.69729 8.51646 5.27171 8.0129 4.01281L7.19925 1.97868C6.78162 0.934616 5.77042 0.25 4.64593 0.25H3C1.48122 0.25 0.25 1.48122 0.25 3C0.25 12.2508 7.74923 19.75 17 19.75C18.5188 19.75 19.75 18.5188 19.75 17V15.3541C19.75 14.2296 19.0654 13.2184 18.0213 12.8008L15.9872 11.9871C14.7283 11.4835 13.3027 11.9745 12.6129 13.1168C12.3906 13.0457 12.111 12.9459 11.7954 12.8106C10.9796 12.461 9.94391 11.8833 9.03033 10.9697C8.11675 10.0561 7.53901 9.02042 7.18936 8.20456C7.05411 7.88897 6.95433 7.60941 6.88322 7.38709ZM10.25 1C10.25 0.585786 10.5858 0.25 11 0.25C12.1491 0.25 13.2869 0.476325 14.3485 0.916054C15.4101 1.35578 16.3747 2.0003 17.1872 2.81282C17.9997 3.62533 18.6442 4.58992 19.0839 5.65152C19.5237 6.71312 19.75 7.85093 19.75 9C19.75 9.41421 19.4142 9.75 19 9.75C18.5858 9.75 18.25 9.41421 18.25 9C18.25 8.04792 18.0625 7.10516 17.6981 6.22554C17.3338 5.34593 16.7997 4.5467 16.1265 3.87348C15.4533 3.20025 14.6541 2.66622 13.7745 2.30187C12.8948 1.93753 11.9521 1.75 11 1.75C10.5858 1.75 10.25 1.41421 10.25 1ZM10.25 5C10.25 4.58579 10.5858 4.25 11 4.25C11.6238 4.25 12.2415 4.37286 12.8177 4.61157C13.394 4.85028 13.9177 5.20016 14.3588 5.64124C14.7998 6.08232 15.1497 6.60596 15.3884 7.18225C15.6271 7.75855 15.75 8.37622 15.75 9C15.75 9.41421 15.4142 9.75 15 9.75C14.5858 9.75 14.25 9.41421 14.25 9C14.25 8.5732 14.1659 8.15059 14.0026 7.75628C13.8393 7.36197 13.5999 7.00369 13.2981 6.7019C12.9963 6.40011 12.638 6.16072 12.2437 5.99739C11.8494 5.83406 11.4268 5.75 11 5.75C10.5858 5.75 10.25 5.41421 10.25 5Z"/>
@@ -838,7 +839,7 @@
                                     </li>
 
                                     <li>
-                                        <a href="mailto:{{ $setting->email }}">
+                                        <a href="mailto:{{ $setting->email }}" style="font-family: 'Cairo',sans-serif;">
                                             <span>
                                                 <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M0.25 5C0.25 2.37665 2.37665 0.25 5 0.25H17C19.6234 0.25 21.75 2.37665 21.75 5V15C21.75 17.6234 19.6234 19.75 17 19.75H7C6.58579 19.75 6.25 19.4142 6.25 19C6.25 18.5858 6.58579 18.25 7 18.25H17C18.7949 18.25 20.25 16.7949 20.25 15V5C20.25 3.20507 18.7949 1.75 17 1.75H5C3.20507 1.75 1.75 3.20507 1.75 5V10C1.75 10.4142 1.41421 10.75 1 10.75C0.585786 10.75 0.25 10.4142 0.25 10V5ZM4.37596 5.58397C4.60573 5.23933 5.07138 5.1462 5.41603 5.37596L9.19723 7.89676C10.2889 8.62454 11.7111 8.62454 12.8028 7.89676L16.584 5.37596C16.9286 5.1462 17.3943 5.23933 17.624 5.58397C17.8538 5.92862 17.7607 6.39427 17.416 6.62404L13.6348 9.14484C12.0393 10.2085 9.9607 10.2085 8.36518 9.14484L4.58397 6.62404C4.23933 6.39427 4.1462 5.92862 4.37596 5.58397ZM0.25 13C0.25 12.5858 0.585786 12.25 1 12.25H7C7.41421 12.25 7.75 12.5858 7.75 13C7.75 13.4142 7.41421 13.75 7 13.75H1C0.585786 13.75 0.25 13.4142 0.25 13ZM0.25 16C0.25 15.5858 0.585786 15.25 1 15.25H7C7.41421 15.25 7.75 15.5858 7.75 16C7.75 16.4142 7.41421 16.75 7 16.75H1C0.585786 16.75 0.25 16.4142 0.25 16Z"/>
@@ -852,7 +853,7 @@
 
 
                                     <li>
-                                        <a href="javascript:;">
+                                        <a href="javascript:;" style="font-family: 'Cairo',sans-serif;">
                                             <span>
                                                 <svg width="18" height="22" viewBox="0 0 18 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M9 1.75C5.47857 1.75 2.25 4.48059 2.25 8.11111C2.25 9.82498 3.34675 12.1327 4.85679 14.0668C5.59932 15.0178 6.409 15.8353 7.171 16.4074C7.95947 16.9993 8.59247 17.25 9 17.25C9.42269 17.25 10.0624 17.0094 10.8465 16.4554C11.6072 15.9179 12.4148 15.1481 13.1547 14.2468C14.6599 12.4136 15.75 10.2065 15.75 8.5C15.75 4.45503 12.4938 1.75 9 1.75ZM0.75 8.11111C0.75 3.51941 4.78944 0.25 9 0.25C13.2382 0.25 17.25 3.54497 17.25 8.5C17.25 10.7209 15.9026 13.2638 14.314 15.1987C13.5071 16.1815 12.6038 17.0504 11.7121 17.6804C10.8438 18.294 9.88982 18.75 9 18.75C8.09503 18.75 7.13428 18.2555 6.27041 17.6069C5.38006 16.9385 4.4788 16.0201 3.67446 14.9899C2.09075 12.9614 0.75 10.3246 0.75 8.11111ZM9 5.75C7.75736 5.75 6.75 6.75736 6.75 8C6.75 9.24264 7.75736 10.25 9 10.25C10.2426 10.25 11.25 9.24264 11.25 8C11.25 6.75736 10.2426 5.75 9 5.75ZM5.25 8C5.25 5.92893 6.92893 4.25 9 4.25C11.0711 4.25 12.75 5.92893 12.75 8C12.75 10.0711 11.0711 11.75 9 11.75C6.92893 11.75 5.25 10.0711 5.25 8ZM2.25 21C2.25 20.5858 2.58579 20.25 3 20.25H15C15.4142 20.25 15.75 20.5858 15.75 21C15.75 21.4142 15.4142 21.75 15 21.75H3C2.58579 21.75 2.25 21.4142 2.25 21Z"/>
@@ -862,7 +863,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="javascript:;">
+                                        <a href="javascript:;" style="font-family: 'Cairo',sans-serif;">
                                             <span>
                                                 <svg width="18" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M6 2C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2H6Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -901,6 +902,8 @@
             </div>
         </div>
 
+        </div>
+    </div>
     </footer>
     <!-- footer prart start  end -->
     @if ($cookie_consent->status == 1)

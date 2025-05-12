@@ -1,3 +1,13 @@
+@section('head')
+    <!-- Google Fonts: Cairo -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif !important;
+        }
+    </style>
+    @parent
+@endsection
 @extends('layout')
 @section('title')
     <title>{{ html_decode($car->seo_title) }}</title>
@@ -79,15 +89,16 @@
                     <div class="accordion" id="accordionPanelsStayOpenExample" data-aos="fade-up"
                     data-aos-delay="100">
                         <div class="accordion-item">
-                            <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingOne" style="font-family: 'Cairo', sans-serif;">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
                                     aria-controls="panelsStayOpen-collapseOne">
                                     {{ __('translate.Description Overview') }}
+
                                 </button>
                             </h2>
                             <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
-                                aria-labelledby="panelsStayOpen-headingOne">
+                                aria-labelledby="panelsStayOpen-headingOne" style="font-family: 'Cairo', sans-serif;">
                                 <div class="accordion-body">
                                     {!! clean(html_decode($car->description)) !!}
                                 </div>
@@ -451,7 +462,7 @@
                     <div class="accordion aos-init aos-animate" id="accordionPanelsStayOpenExample2" data-aos="fade-up"
                     data-aos-delay="200">
                         <div class="accordion-item">
-                            <h2 class="accordion-header" id="panelsStayOpen-headingthree">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingthree" style="font-family: 'Cairo', sans-serif;" >
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapsethree" aria-expanded="true" aria-controls="panelsStayOpen-collapsethree">
                                     {{ __('translate.Features') }}
                                 </button>
@@ -480,7 +491,7 @@
                         <div class="accordion aos-init aos-animate" id="accordionPanelsStayOpenExample5" data-aos="fade-up"
                         data-aos-delay="350">
                             <div class="accordion-item">
-                                <h2 class="accordion-header" id="panelsStayOpen-headingsix">
+                                <h2 class="accordion-header" id="panelsStayOpen-headingsix" style="font-family: 'Cairo', sans-serif;">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapsesix" aria-expanded="false" aria-controls="panelsStayOpen-collapsesix">
                                         {{ __('translate.Car Reviews') }}
                                     </button>
@@ -507,7 +518,7 @@
                                                     </div>
                                                 </div>
 
-                                                <p>
+                                                <p style="font-family: 'Cairo', sans-serif;">
                                                     {{ html_decode($review->comment) }}
                                                 </p>
 
@@ -539,7 +550,7 @@
                     <div class="accordion aos-init aos-animate" id="accordionPanelsStayOpenExample6" data-aos="fade-up"
                     data-aos-delay="400">
                         <div class="accordion-item">
-                            <h2 class="accordion-header" id="panelsStayOpen-headingseven">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingseven" style="font-family: 'Cairo', sans-serif;">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseseven" aria-expanded="true" aria-controls="panelsStayOpen-collapseseven">
                                     {{ __('translate.Write Your Review') }}
                                 </button>
@@ -570,7 +581,7 @@
 
                                             <div class="form-item">
                                                 <div class="form-inner">
-                                                    <label class="form-label">{{ __('translate.Review') }} <span>*</span> </label>
+                                                    <label class="form-label" style="font-family: 'Cairo', sans-serif;">{{ __('translate.Review') }} <span>*</span> </label>
                                                     <textarea name="comment" class="form-control" id="review" rows="5" placeholder="{{ __('translate.Write here') }}"></textarea>
                                                 </div>
 
@@ -585,7 +596,7 @@
                                                 </div>
                                             @endif
 
-                                            <button type="submit" class="thm-btn-two">{{ __('translate.Submit Review') }}</button>
+                                            <button type="submit" class="thm-btn-two" style="font-family: 'Cairo', sans-serif;">{{ __('translate.Submit Review') }}</button>
 
                                         </form>
                                     </div>
@@ -606,7 +617,7 @@
                             </div>
 
                             <div class="auto-sales-text-item">
-                                <div class="auto-sales-text-left">
+                                <div class="auto-sales-text-left" style="font-family: 'Cairo', sans-serif;">
                                     <h3>{{ html_decode($dealer->name) }}
                                         @php
                                             $kyc = Modules\Kyc\Entities\KycInformation::where('user_id',$dealer->id)->where('status',1)->first();
@@ -628,13 +639,13 @@
                             <div class="auto-sales-contact">
                                 <ul>
                                    <li>
-                                       <span style="font-size: 24px; font-weight: bold; display: flex;">
+                                       <span style="font-size: 24px; font-weight: bold; display: flex; font-family: 'Cairo', sans-serif;">
                                             {{ html_decode($car->title) }}
                                             <span style="margin-left: auto; font-weight: bold;">{{ html_decode($car->regular_price) }}</span>
                                         </span>
                                     </li>
                                     <li>
-                                        <a href="tel:{{ html_decode($dealer->phone) }}">
+                                        <a href="tel:{{ html_decode($dealer->phone) }}" style="font-family: 'Cairo', sans-serif;">
                                             <span>
                                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
@@ -647,7 +658,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="mailto:{{ html_decode($dealer->email) }}">
+                                        <a href="mailto:{{ html_decode($dealer->email) }}" style="font-family: 'Cairo', sans-serif;">
 
                                             <span>
                                                 <svg class="stroke-color" width="24" height="24" viewBox="0 0 24 24"
@@ -663,7 +674,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="javascript:;">
+                                        <a href="javascript:;" style="font-family: 'Cairo', sans-serif;">
 
                                             <span>
                                                 <svg width="18" height="22" viewBox="0 0 18 22" fill="none"
@@ -687,7 +698,7 @@
                           
                                 <!-- زر احجز الان -->
                                 <button type="submit" class="thm-btn-two" 
-                                        style="width: 250px;" 
+                                        style="width: 250px; font-family: 'Cairo', sans-serif;" 
                                         data-bs-toggle="modal" 
                                         data-bs-target="#reservationModal">
                                     {{ __('إحجز الأن') }}
@@ -831,8 +842,8 @@
                                                         </span>
                                                     </div>
 
-                                                    <span>
-                                                        {{ html_decode($related_car->mileage) }}
+                                                    <span style="font-family: 'Cairo', sans-serif;">
+                                                        {{ html_decode($related_car->mileage)}}
                                                     </span>
                                                 </div>
                                                 <div class="brand-car-inner-item-two">

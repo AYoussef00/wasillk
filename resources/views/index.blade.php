@@ -44,17 +44,13 @@
 
                 <!-- banner-part-start  -->
                 <section class="banner-two" style="background-color: black;">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="banner-two-txt">
-                                    <h1 style="color: #3575a4; font-family: 'Cairo', sans-serif;">{{ $homepage->home1_intro_title }}</h1>
-                                    <br>
-                                    <span style="font-family:'Cairo', sans-serif;">{{ $homepage->home1_intro_short_title }}</span>
-
-                                </div>                        
-                            </div>
-                        </div>
+                    <div class="d-flex flex-column justify-content-center align-items-center text-center py-5" style="min-height: 10vh;">
+                        <h1 class="display-2 fw-bold text-center text-white" style="font-family: 'Cairo', sans-serif; font-size: 29px;">
+                            {{ $homepage->home1_intro_title }}
+                        </h1>
+                        <span class="mt-3 text-white" style="font-family:'Cairo', sans-serif;">
+                            {{ $homepage->home1_intro_short_title }}
+                        </span>
                     </div>
                 </section>
 
@@ -448,13 +444,15 @@
 
 
         <!-- Categories-part-start -->
+
         <section class="categories categories-three py-120px">
-            <div class="container"> 
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 col-md-10 text-center">
-                        <h2 style="font-family: 'Cairo', sans-serif;"><i class="pin-icon"></i> لماذا تختار وصللك</h2>                    </div>
+            <div class="container">
+                <div class="row justify-content-center text-center">
+                    <div class="col-12 col-md-10 col-lg-6 d-flex justify-content-center">
+                        <h2 class="text-center mx-auto" style="font-family: 'Cairo', sans-serif;">لماذا تختار وصللك</h2>
+                    </div>
                 </div>
-        
+
                 @php
                     $notes = [
                         'اسطول سيارات اقتصادية متنوعة',
@@ -463,10 +461,10 @@
                         'سهولة الحجز'
                     ];
                 @endphp
-        
+
                 <div class="row justify-content-center mt-4">
                     @foreach ($notes as $note)
-                        <div class="col-md-3 col-sm-6 mb-4">
+                        <div class="col-12 col-sm-6 col-md-3 mb-4">
                             <div class="sticky-note p-4 text-center d-flex justify-content-center align-items-center flex-column">
                                 <div class="pin-icon">📌</div>
                                 <p class="note-text">{{ $note }}</p>
@@ -509,7 +507,7 @@
           
 
 
-        <section class="brand-car brand-car-two py-120px  ">
+        <section class="brand-car brand-car-two py-120px">
             <div class="container">
                 <div class="d-flex justify-content-center align-items-center min-vh-10">
                     <div class="row align-items-end text-center">
@@ -524,13 +522,12 @@
                                     </span>
                                 </div>
                             </div>
-                            <h2 style="font-family: 'Cairo', sans-serif; font-weight: 700;">
+                            <h2 class="h4 h2-md" style="font-family: 'Cairo', sans-serif; font-weight: 700;">
                                 {{ __('translate.Latest Car Listings') }}
-                              </h2>
-                                                      </div>
+                            </h2>
+                        </div>
                     </div>
                 </div>
-                
                 <div class="row mt-60px">
                     <div class="col-lg-12">
                         <div class="tab-content" id="pills-tabContent1111">
@@ -543,10 +540,9 @@
                                             <div class="position-relative" style="height: 100%; width: 100%;">
                                                 <img src="{{ getImageOrPlaceholder($car['thumb_image'], '329x203') }}"
                                                      alt="thumb"
-                                                     class="w-100 h-100"
+                                                     class="img-fluid w-100 h-auto"
                                                      style="object-fit: cover;">
                                             </div>
-                                
                                             <div class="card-body d-flex flex-column justify-content-between">
                                                 <div>
                                                     <div class="d-flex justify-content-between align-items-center mb-2">
@@ -571,7 +567,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                @endforeach                                
+                                    @endforeach
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="pills-profile" role="tabpanel"
@@ -580,10 +576,10 @@
 
                                 <div class="row g-5">
                                     @foreach ($used_cars as $car)
-                                    <div class="col-lg-3 col-md-4 col-sm-6">
+                                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                                         <div class="brand-car-item d-flex flex-column">
                                                 <div class="brand-car-item-img">
-                                                    <img src="{{ getImageOrPlaceholder($car->thumb_image, '330x230') }}" alt="thumb">
+                                                    <img src="{{ getImageOrPlaceholder($car->thumb_image, '330x230') }}" alt="thumb" class="img-fluid w-100 h-auto">
 
                                                     <div class="brand-car-item-img-text">
 
