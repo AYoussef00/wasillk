@@ -629,7 +629,7 @@
                                 <ul>
                                    <li>
                                        <span style="font-size: 24px; font-weight: bold; display: flex;">
-                                            {{ html_decode($car->title . ' ' . $car->year) }}
+                                            {{ html_decode($car->title) }}
                                             <span style="margin-left: auto; font-weight: bold;">{{ html_decode($car->regular_price) }}</span>
                                         </span>
                                     </li>
