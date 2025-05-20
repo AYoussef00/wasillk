@@ -136,7 +136,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-black">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ route('home') }}">
-                    <img src="{{ getImageOrPlaceholder($setting->logo, '300x40') }}" alt="logo" style="max-height: 120px; margin-right: 20px;">
+                    <img src="{{ getImageOrPlaceholder($setting->logo, '300x40') }}" alt="logo" style="max-height: 160px; margin-right: 20px;">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
