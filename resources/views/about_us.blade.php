@@ -63,28 +63,7 @@
                     </div>
                     
                     <div class="about-item-main">
-                        <div class="about-item">
-                            <div class="icon">
-                                <img src="{{ asset($about_us->car_image) }}" alt="img">
-                            </div>
 
-                            <div class="text">
-                                <h6>{{ $about_us->total_car }}</h6>
-
-                                <p>{{ $about_us->total_car_title }}</p>
-                            </div>
-                        </div>
-                        <div class="about-item">
-                            <div class="icon">
-                                <img src="{{ asset($about_us->review_image) }}" alt="img">
-                            </div>
-
-                            <div class="text">
-                                <h6>{{ $about_us->total_review }}</h6>
-
-                                <p>{{ $about_us->total_review_title }}</p>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -306,7 +285,6 @@
                             </div>
 
                             <h2 class="testimonial-taitel">{{ __('translate.Customer Say About Our Services') }}</h2>
-                            <p class="testimonial-p">{{ __('translate.We have 15m+ Global and Local Happy Customers') }}
                             </p>
                         </div>
 

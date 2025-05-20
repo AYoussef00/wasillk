@@ -257,8 +257,8 @@
                                 </div>
 
 
-                                <div class="menu">
-                                    <ul style="font-size: 14px; display: flex; gap: 18px; color: white;">
+                                <div class="menu ms-auto">
+                                    <ul class="d-flex gap-3 mb-0" style="font-size: 14px; color: white;">
                                         {{-- <li><a href="{{ route('faq') }}">{{ __(key: 'مساعدة') }}</a></li> --}}
                                         <li>
                                             <a href="https://maps.app.goo.gl/J1FPhWPzNBLq8qXC9?g_st=iw" style="font-family: 'Cairo', sans-serif; font-weight: 700; color: white;">

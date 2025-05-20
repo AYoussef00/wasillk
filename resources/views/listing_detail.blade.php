@@ -704,11 +704,10 @@
                                     {{ __('إحجز الأن') }}
                                 </button>
 
-                                  <!-- زر واتساب مع أيقونة أكبر -->
-                                <button type="submit" 
-                                style="background: none; border: none; color: #25D366; font-size: 50px; cursor: pointer;">
-                                <i class="fab fa-whatsapp"></i>
-                                </button>
+                                <!-- رابط واتساب يفتح المحادثة مباشرة -->
+                                <a href="https://wa.me/966558588097" target="_blank" style="color: #25D366; font-size: 50px;">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
 
 
                             </div>

@@ -45,10 +45,10 @@
                 <!-- banner-part-start  -->
                 <section class="banner-two" style="background-color: black;">
                     <div class="d-flex flex-column justify-content-center align-items-center text-center py-5" style="min-height: 10vh;">
-                        <h1 class="display-2 fw-bold text-center text-white" style="font-family: 'Cairo', sans-serif; font-size: 29px;">
+                        <h1 class="display-2 fw-bold text-center text-white" style="font-family: 'Cairo', sans-serif; font-size: 72px;">
                             {{ $homepage->home1_intro_title }}
                         </h1>
-                        <span class="mt-3 text-white" style="font-family:'Cairo', sans-serif;">
+                        <span class="mt-3 text-white" style="font-family:'Cairo', sans-serif; font-size: 30px;">
                             {{ $homepage->home1_intro_short_title }}
                         </span>
                     </div>
