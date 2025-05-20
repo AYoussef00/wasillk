@@ -289,12 +289,6 @@
                                 </span>
                             </a>
 
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                @foreach ($language_list as $language_dropdown_item)
-                                    <li><a class="dropdown-item" href="{{ route('language-switcher', ['lang_code' => $language_dropdown_item->lang_code]) }}">{{ $language_dropdown_item->lang_name }}</a></li>
-                                @endforeach
-                            </ul>
-
                         </div>
                     </div>
                 </div>
@@ -314,18 +308,6 @@
                         {{ __('translate.Dashboard') }}
                     </a>
                 @else
-                <a href="{{ route('login') }}" class="@if(Route::is('home')) {{ Session::get('selected_theme') == 'theme_three' ? 'th m-btn' : 'thm-btn-two' }} @else thm-btn-two  @endif">
-                    <span>
-                        <svg width="14" height="18" viewBox="0 0 14 18" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <ellipse cx="6.99676" cy="13.8885" rx="6.22222" ry="3.11111" stroke-width="1.4"
-                                stroke-linejoin="round" />
-                            <circle cx="6.99611" cy="4.55556" r="3.55556" stroke-width="1.4"
-                                stroke-linejoin="round" />
-                        </svg>
-                    </span>
-                    {{ __('translate.Login') }}
-                </a>
                 @endauth
 
             </div>
@@ -346,38 +328,7 @@
                     </ul>
                 </li>
 
-                <li><a href="{{ route('about-us') }}">{{ __('translate.About Us') }}</a></li>
-
-                <li><a href="{{ route('listings') }}">{{ __('translate.Listings') }}</a></li>
-
-                <li><a href="{{ route('dealers') }}">{{ __('translate.Dealers') }}</a></li>
-
-                <li><a href="{{ route('blogs') }}">{{ __('translate.Blogs') }}</a></li>
-
-                <li class="dropdown">
-                    <a href="#">{{ __('translate.Pages') }}
-                        <span>
-                             <i class="fa-solid fa-angle-down"></i>
-                        </span>
-                     </a>
-
-                    <ul class="d-menu">
-
-                        <li><a href="{{ route('pricing-plan') }}">{{ __('translate.Pricing Plan') }}</a></li>
-
-                        <li><a href="{{ route('terms-conditions') }}">{{ __('translate.Terms and Conditions') }}</a></li>
-
-                        <li><a href="{{ route('privacy-policy') }}">{{ __('translate.Privacy Policy') }}</a></li>
-
-                        @foreach ($custom_pages as $custom_page)
-                            <li><a href="{{ route('custom-page', $custom_page->slug) }}">{{ $custom_page->page_name }}</a></li>
-                        @endforeach
-
-                    </ul>
-
-                </li>
-
-                <li><a href="{{ route('faq') }}">{{ __('translate.FAQ') }}</a></li>
+                <li><a href="{{ route('about-us') }}">{{ __(key: 'translate.About Us') }}</a></li>
                 <li><a href="{{ route('contact-us') }}">{{ __('translate.Contact') }}</a></li>
             </ul>
         </nav>

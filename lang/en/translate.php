@@ -960,7 +960,7 @@ return array (
   'Subscription' => 'الاشتراك',
   'Purchase History' => 'سجل المشتريات',
   'KYC Verification' => 'التحقق من KYC',
-  'Contact' => 'اتصل',
+  'Contact' => 'اتصل بنا',
   'Manage Reservation' => 'إدارة الحجز',
   'Car Status' => 'حالة السيارة',
   'Confirmation Message' => 'رسالة التأكيد',
