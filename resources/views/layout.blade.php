@@ -232,13 +232,11 @@
                 </div>
             </div>
         </div>
-
-
         <nav class="menu-bg ">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 col-p-0">
-                        <div class="nav-main" style="background-color: black; color: white; width: 100vw; margin-left: calc(-50vw + 50%);">
+                        <div class="nav-main d-flex justify-content-between align-items-center" style="background-color: black; color: white; width: 100vw; margin-left: calc(-50vw + 50%);">
                             <div class="nav-left">
                                 <div class="logo">
                                     <a href="{{ route('home') }}">
@@ -257,8 +255,8 @@
                                 </div>
 
 
-                                <div class="menu ms-auto">
-                                    <ul class="d-flex gap-3 mb-0" style="font-size: 14px; color: white;">
+                                <div class="menu me-auto">
+                                    <ul class="d-flex gap-3 mb-0 justify-content-end ms-auto" style="font-size: 14px; color: white; direction: rtl;">
                                         {{-- <li><a href="{{ route('faq') }}">{{ __(key: 'مساعدة') }}</a></li> --}}
                                         <li>
                                             <a href="https://maps.app.goo.gl/J1FPhWPzNBLq8qXC9?g_st=iw" style="font-family: 'Cairo', sans-serif; font-weight: 700; color: white;">

@@ -195,10 +195,7 @@
 
         </div>
 
-        <div class="contact-map" >
 
-            <iframe src="{{ $contact_us->map_code }}" width="600" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
 
     </section>
     <!-- contact-us-part-end -->
