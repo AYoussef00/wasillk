@@ -50,8 +50,8 @@
                                                             <td style="font-size: 12px;">{{ $request->total_days }}</td>
                                                             <td style="font-size: 12px;">{{ number_format($request->total_amount, 2) }} ريال</td>
                                                             <td style="font-size: 12px;">{{ $request->created_at }}</td>
-                                                            <td><a href="{{ Storage::url($request->driving_licence) }}" class="btn btn-sm btn-outline-primary" target="_blank" style="font-size: 12px;">عرض الملف</a></td>
-                                                            <td><a href="{{ Storage::url($request->national_id) }}" class="btn btn-sm btn-outline-primary" target="_blank" style="font-size: 12px;">عرض الملف</a></td>
+                                                            <td><a href="{{ route('file.show', ['type' => 'licenses', 'filename' => pathinfo($request->driving_licence, PATHINFO_BASENAME)]) }}" class="btn btn-sm btn-outline-primary" target="_blank" style="font-size: 12px;">عرض الملف</a></td>
+                                                            <td><a href="{{ route('file.show', ['type' => 'ids', 'filename' => pathinfo($request->national_id, PATHINFO_BASENAME)]) }}" class="btn btn-sm btn-outline-primary" target="_blank" style="font-size: 12px;">عرض الملف</a></td>
                                                             <td>
                                                                 <form action="{{ route('requests.approve', $request->id) }}" method="POST" style="display:inline-block;">
                                                                     @csrf

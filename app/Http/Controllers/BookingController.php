@@ -28,8 +28,8 @@ class BookingController extends Controller
             'pickup_date' => 'required|date',
             'return_date' => 'required|date|after:pickup_date',
             'delivery_method' => 'required',
-            'driving_licence' => 'required|file|image',
-            'national_id' => 'required|file|image',
+            'driving_licence' => 'required|file|image|max:2048', // max 2MB
+            'national_id' => 'required|file|image|max:2048', // max 2MB
             'car_id' => 'required|exists:cars,id',
         ]);
     
@@ -53,8 +53,16 @@ class BookingController extends Controller
         $total_amount = $daily_price * $total_days;
     
         // رفع الصور
-        $licensePath = $request->file('driving_licence')->store('licenses', 'public');
-        $idPath = $request->file('national_id')->store('ids', 'public');
+        $licensePath = null;
+        $idPath = null;
+        
+        if ($request->hasFile('driving_licence')) {
+            $licensePath = $request->file('driving_licence')->store('licenses', 'public');
+        }
+        
+        if ($request->hasFile('national_id')) {
+            $idPath = $request->file('national_id')->store('ids', 'public');
+        }
     
         // حفظ الحجز
         PendingRequest::create([

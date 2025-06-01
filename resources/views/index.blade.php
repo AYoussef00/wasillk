@@ -449,7 +449,7 @@
             <div class="container">
                 <div class="row justify-content-center text-center">
                     <div class="col-12 col-md-10 col-lg-6 d-flex justify-content-center">
-                        <h2 class="text-center mx-auto" style="font-family: 'Cairo', sans-serif;">لماذا تختار وصللك</h2>
+                        <h2 class="text-center mx-auto" style="font-family: 'Cairo', sans-serif;">لماذا تختار واصل لك</h2>
                     </div>
                 </div>
 

@@ -1,0 +1,118 @@
+/* Custom Navigation Styles */
+.custom-navbar {
+    background-color: rgba(0, 0, 0, 0.9) !important;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.custom-navbar.scrolled {
+    background-color: rgba(0, 0, 0, 1) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand img {
+    max-height: 120px;
+    transition: all 0.3s ease;
+    padding: 5px 0;
+}
+
+.custom-navbar.scrolled .navbar-brand img {
+    max-height: 100px;
+}
+
+.nav-link {
+    color: white !important;
+    font-size: 16px;
+    padding: 1rem 1.5rem !important;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: #ffd700 !important;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #ffd700;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 70%;
+}
+
+.nav-link.active {
+    color: #ffd700 !important;
+}
+
+.nav-link.active::after {
+    width: 70%;
+}
+
+/* Mobile Navigation */
+@media (max-width: 991.98px) {
+    .custom-navbar {
+        padding: 0.5rem;
+    }
+
+    .navbar-brand img {
+        max-height: 100px;
+    }
+
+    .navbar-toggler {
+        border: none;
+        padding: 0;
+    }
+
+    .navbar-toggler:focus {
+        box-shadow: none;
+    }
+
+    .navbar-toggler-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .nav-link {
+        padding: 0.75rem 1rem !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-link::after {
+        display: none;
+    }
+
+    .navbar-collapse {
+        background-color: rgba(0, 0, 0, 0.95);
+        padding: 1rem;
+        border-radius: 8px;
+        margin-top: 10px;
+    }
+}
+
+/* Animation for mobile menu */
+.navbar-collapse {
+    transition: all 0.3s ease;
+}
+
+.navbar-collapse.show {
+    animation: slideDown 0.3s ease forwards;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+} 

@@ -201,13 +201,13 @@ Route::get('/migrate-for-update', function () {
     $template1 = new EmailTemplate();
     $template1->name = 'User Verification OTP';
     $template1->subject = 'User Verification OTP';
-    $template1->description = '<p>Dear <strong>{{user_name}}</strong>,</p><p>Congratulations! Your Account has been created successfully. Please Click the following link and Active your Account.</p><p><strong>{{varification_otp}}</strong></p><p>&nbsp;</p><p>Thank You</p><p>Neptun Solution</p>';
+    $template1->description = '<p>Dear <strong>{{user_name}}</strong>,</p><p>Congratulations! Your Account has been created successfully. Please Click the following link and Active your Account.</p><p><strong>{{varification_otp}}</strong></p><p>&nbsp;</p><p>Thank You</p><p>Wasil-lk</p>';
     $template1->save();
 
     $template2 = new EmailTemplate();
     $template2->name = 'Password Reset OTP';
     $template2->subject = 'Password Reset OTP';
-    $template2->description = '<h4>Dear <strong>{{user_name}}</strong>,</h4><p>Do you want to reset your password? Please Click the following link and Reset Your Password.</p><p><strong>{{reset_otp}}</strong></p><p>&nbsp;</p><p>Thank You</p><p>Neptun Solution</p>';
+    $template2->description = '<h4>Dear <strong>{{user_name}}</strong>,</h4><p>Do you want to reset your password? Please Click the following link and Reset Your Password.</p><p><strong>{{reset_otp}}</strong></p><p>&nbsp;</p><p>Thank You</p><p>Wasil-lk</p>';
     $template2->save();
 
     Artisan::call('migrate');
@@ -238,3 +238,15 @@ Route::patch('/requests/{id}/approve', [BookingController::class, 'approve'])->n
 Route::get('/confirmed-requests', [BookingController::class, 'confirmed'])->name('requests.confirmed');
 
 Route::delete('/requests/{id}', [BookingController::class, 'destroy'])->name('requests.destroy');
+
+Route::get('/file/{type}/{filename}', function($type, $filename) {
+    $validTypes = ['licenses', 'ids'];
+    if (!in_array($type, $validTypes)) {
+        abort(404);
+    }
+    $path = storage_path('app/public/' . $type . '/' . $filename);
+    if (!file_exists($path)) {
+        abort(404);
+    }
+    return response()->file($path);
+})->name('file.show');

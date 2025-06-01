@@ -28,8 +28,9 @@
     <link rel="stylesheet" href="{{ asset('global/toastr/toastr.min.css') }}">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('frontend/css/custom.css') }}">
-
-
+    <!-- Add custom-nav.css after other stylesheets -->
+    <link rel="stylesheet" href="{{ asset('frontend/css/custom-nav.css') }}">
+    
     @stack('style_section')
 
     <style>
@@ -133,31 +134,41 @@
                 </div>
             </div>
         </div>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-black">
-            <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom-navbar fixed-top">
+            <div class="container">
                 <a class="navbar-brand" href="{{ route('home') }}">
-                    <img src="{{ getImageOrPlaceholder($setting->logo, '300x40') }}" alt="logo" style="max-height: 160px; margin-right: 20px;">
+                    <img src="{{ asset($setting->logo) }}" alt="logo" class="img-fluid">
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-                    <ul class="navbar-nav mb-2 mb-lg-0" style="direction: rtl;">
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link fw-bold text-white" href="{{ route('home') }}">{{ __('الصفحة الرئيسية') }}</a>
+                            <a class="nav-link {{ Route::is('home') ? 'active' : '' }}" href="{{ route('home') }}">
+                                <i class="fas fa-home"></i> الصفحة الرئيسية
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link fw-bold text-white" href="javascript:void(0);">{{ __('المعرض') }}</a>
+                            <a class="nav-link" href="#">
+                                <i class="fas fa-car"></i> المعرض
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link fw-bold text-white" href="{{ route('about-us') }}">{{ __('نبذة عنا') }}</a>
+                            <a class="nav-link {{ Route::is('about-us') ? 'active' : '' }}" href="{{ route('about-us') }}">
+                                <i class="fas fa-info-circle"></i> نبذة عنا
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link fw-bold text-white" href="{{ route('contact-us') }}">{{ __('إتصل بنا') }}</a>
+                            <a class="nav-link {{ Route::is('contact-us') ? 'active' : '' }}" href="{{ route('contact-us') }}">
+                                <i class="fas fa-envelope"></i> اتصل بنا
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link fw-bold text-white" href="https://maps.app.goo.gl/J1FPhWPzNBLq8qXC9?g_st=iw">{{ __('موقعنا') }}</a>
+                            <a class="nav-link" href="https://maps.app.goo.gl/J1FPhWPzNBLq8qXC9?g_st=iw" target="_blank">
+                                <i class="fas fa-map-marker-alt"></i> موقعنا
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -725,7 +736,7 @@
             <span>
                 <svg width="39" height="75" viewBox="0 0 39 75" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
-                        d="M17.235 75.0022L18.3095 74.9021C18.3095 74.8855 18.3144 74.8688 18.3168 74.8521C18.0878 74.8283 17.8612 74.7854 17.6322 74.7831C15.744 74.7759 13.9751 74.2448 12.2526 73.5542C8.50789 72.0514 5.51357 69.6293 3.26965 66.3332C1.58854 63.8612 0.51897 61.1438 0.192494 58.1906C0.0268193 56.6902 0.0195101 55.1708 0.0146374 53.6585C-0.00485375 47.2806 0.0073282 40.9028 1.90292e-05 34.5249C-0.00485375 30.6382 0.925847 27.0087 3.08205 23.7221C5.88146 19.4567 9.78943 16.6536 14.7986 15.3676C16.9281 14.8222 19.0989 14.6245 21.3014 14.8627C27.6384 15.5486 32.5185 18.5517 36.0001 23.7555C37.4546 25.9298 38.3902 28.3233 38.7678 30.8978C38.9311 32.0171 38.9847 33.1603 38.9896 34.2939C39.0066 41.1386 38.9993 47.9808 38.992 54.8255C38.992 55.8519 39.0066 56.8855 38.9092 57.9048C38.7021 60.0673 38.0735 62.1226 37.0965 64.0731C35.2741 67.7098 32.5843 70.5558 28.9809 72.5372C26.793 73.7423 24.4443 74.5235 21.9348 74.7878C21.4987 74.8331 21.0553 74.8307 20.6119 74.8902C20.7386 74.926 20.8653 74.9641 20.9919 74.9998H17.2399L17.235 75.0022ZM3.08449 44.8395H3.08692C3.08692 48.3309 3.06743 51.8223 3.09911 55.3137C3.10885 56.3973 3.18925 57.4881 3.3598 58.5574C3.7618 61.1128 4.80458 63.4301 6.40772 65.4735C9.05851 68.8553 12.5133 70.9868 16.8355 71.6989C18.8869 72.0371 20.9432 72.0228 22.9654 71.5775C26.8271 70.7249 30.0236 68.7886 32.4649 65.714C34.8891 62.6608 36.0001 59.1885 35.9831 55.3208C35.9489 48.2214 35.9684 41.1195 35.9757 34.0177C35.9757 32.7554 35.8344 31.5099 35.5372 30.2881C34.7015 26.8587 32.94 23.9674 30.1698 21.6978C26.1522 18.4041 21.5401 17.1823 16.3994 18.123C12.8374 18.7756 9.82841 20.4737 7.38959 23.1315C4.53901 26.2371 3.12103 29.8785 3.09423 34.0391C3.07231 37.64 3.08936 41.2386 3.08936 44.8395H3.08449Z"
+                        d="M17.235 75.0022L18.3095 74.9021C18.3095 74.8855 18.3144 74.8688 18.3168 74.8521C18.0878 74.8283 17.8612 74.7854 17.6322 74.7831C15.744 74.7759 13.9751 74.2448 12.2526 73.5542C8.50789 72.0514 5.51357 69.6293 3.26965 66.3332C1.58854 63.8612 0.51897 61.1438 0.192494 58.1906C0.0268193 56.6902 0.0195101 55.1708 0.0146374 53.6585C-0.00485375 47.2806 0.0073282 40.9028 1.90292e-05 34.5249C-0.00485375 30.6382 0.925847 27.0087 3.08205 23.7221C5.88146 19.4567 9.78943 16.6536 14.7986 15.3676C16.9281 14.8222 19.0989 14.6245 21.3014 14.8627C27.6384 15.5486 32.5185 18.5517 36.0001 23.7555C37.4546 25.9298 38.3902 28.3233 38.7678 30.8978C38.9311 32.0171 38.9847 33.1603 38.9896 34.2939C39.0066 41.1386 38.9993 47.9808 38.992 54.8255C38.992 55.8519 39.0066 56.8855 38.9092 57.9048C38.7021 60.0673 38.0735 62.1226 37.0965 64.0731C35.2741 67.7098 32.5843 70.5558 28.9809 72.5372C26.793 73.7423 24.4443 74.5235 21.9348 74.7878C21.4987 74.8331 21.0553 74.8307 20.6119 74.8902C20.7386 74.926 20.8653 74.9641 20.9919 74.9998H17.2399L17.235 75.0022ZM3.08449 44.8395H3.08692C3.08692 48.3309 3.06743 51.8223 3.09911 55.3137C3.10885 56.3973 3.18925 57.4881 3.3598 58.5574C3.7618 61.1128 4.80458 63.4301 6.40772 65.4735C9.05851 68.8553 12.5133 70.9868 16.8355 71.6989C18.8869 72.0371 20.9432 72.0228 22.9654 71.5775C26.8271 70.7249 30.0236 68.7886 32.4649 65.714C34.8891 62.6608 36.0001 59.1885 35.9831 55.3208C35.9489 48.2214 35.9684 41.1195 35.9757 34.0177C35.9757 32.7554 35.8344 31.5099 35.5372 30.2881C34.7015 26.8587 32.94 23.9674 30.1698 21.6978C26.1522 18.4041 21.5401 17.1823 16.3994 18.123C12.8374 18.7756 9.82841 20.4737 7.38959 23.1315C4.53901 26.2371 3.12103 29.8785 3.09423 34.0391C3.07231 37.6403 3.08936 41.2388 3.08936 44.8395H3.08449Z"
                         fill="#405FF2" />
                     <path
                         d="M38.9361 56.4846C38.9216 56.3798 38.8901 56.275 38.8901 56.1726C38.8877 48.866 38.8853 41.5593 38.8877 34.2526C38.8877 34.0478 38.9192 33.843 38.9361 33.6382V56.487V56.4846Z"
@@ -821,6 +832,30 @@
             $('.cookie_consent_modal').removeClass('d-none');
         }
 
+    </script>
+
+    <!-- Add this JavaScript at the end of the body -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add scrolled class to navbar when scrolling
+            window.addEventListener('scroll', function() {
+                const navbar = document.querySelector('.custom-navbar');
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            // Add active class to current nav item
+            const currentLocation = location.href;
+            const menuItems = document.querySelectorAll('.nav-link');
+            menuItems.forEach(item => {
+                if (item.href === currentLocation) {
+                    item.classList.add('active');
+                }
+            });
+        });
     </script>
 
 </body>
