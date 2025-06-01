@@ -30,6 +30,8 @@
     <link rel="stylesheet" href="{{ asset('frontend/css/custom.css') }}">
     <!-- Add custom-nav.css after other stylesheets -->
     <link rel="stylesheet" href="{{ asset('frontend/css/custom-nav.css') }}">
+    <!-- Add m-nav.css for mobile navigation -->
+    <link rel="stylesheet" href="{{ asset('frontend/css/m-nav.css') }}">
     
     @stack('style_section')
 
@@ -207,23 +209,18 @@
         </div>
     </header>
     <!-- offcanvas -->
-
-    <aside id="offcanvas-nav" >
-
-
-        <nav class="m-nav @if (Route::is('home'))
-
-        {{ Session::get('selected_theme') == 'theme_two' ? 'm-nav-two' : '' }} {{ Session::get('selected_theme') == 'theme_three' ? 'm-nav-three' : '' }} @endif ">
-            <button id="nav-cls-btn"><i class="fa-solid fa-xmark"></i></button>
+    <aside id="offcanvas-nav" class="bg-dark">
+        <nav class="m-nav bg-dark @if (Route::is('home'))
+        {{ Session::get('selected_theme') == 'theme_two' ? 'm-nav-two' : '' }} {{ Session::get('selected_theme') == 'theme_three' ? 'm-nav-three' : '' }} @endif">
+            <button id="nav-cls-btn" class="bg-dark"><i class="fa-solid fa-xmark"></i></button>
 
             <div class="logo">
-                <a href="{{ route('home') }}  ">
-
+                <a href="{{ route('home') }}">
                     @if (Route::is('home'))
                         @if (Session::get('selected_theme') == 'theme_two')
                             <img src="{{ asset($setting->home2_logo2) }}" alt="logo">
                         @elseif (Session::get('selected_theme') == 'theme_three')
-                        <img src="{{ asset($setting->home3_logo2) }}" alt="logo">
+                            <img src="{{ asset($setting->home3_logo2) }}" alt="logo">
                         @else
                             <img src="{{ asset($setting->inner_logo) }}" alt="logo">
                         @endif
@@ -233,117 +230,37 @@
                 </a>
             </div>
 
-
-            <div class="header-right-item">
-                <div class="header-right-item-btn-main">
-                    <div class="header-right-item-btn">
-                        <div class="dropdown two">
-                            <a class=" btn-secondary dropdown-toggle" href="#" role="button"
-                                id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-
-                                <span class="usd-icon">
-                                    <svg width="10" height="20" viewBox="0 0 10 20" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M9 6.5C9 4.567 7.32107 3 5.25 3C3.17893 3 1.5 4.567 1.5 6.5C1.5 8.433 3.17893 10 5.25 10"
-                                            stroke-width="1.5" stroke-linecap="round" />
-                                        <path
-                                            d="M1.5 13.5C1.5 15.433 3.17893 17 5.25 17C7.32107 17 9 15.433 9 13.5C9 11.567 7.32107 10 5.25 10"
-                                            stroke-width="1.5" stroke-linecap="round" />
-                                        <path d="M5.25 1V19" stroke-width="1.5" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-
-
-                                </span>
-
-                                {{ Session::get('currency_name') }}
-                                <span class="btn-arrow">
-                                    <svg width="12" height="6" viewBox="0 0 12 6" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M12.0002 0.633816C11.947 0.446997 11.8572 0.28353 11.6808 0.158011C11.3813 -0.0492418 10.9487 -0.0550799 10.6493 0.155092C10.5927 0.195958 10.5361 0.239744 10.4829 0.286449C9.02543 1.56499 7.56465 2.84645 6.10719 4.125C6.07391 4.15419 6.04729 4.18922 5.96743 4.24176C5.94414 4.20673 5.93083 4.16294 5.89755 4.13375C4.42679 2.84062 2.95269 1.5504 1.48192 0.257257C1.22237 0.0295716 0.922896 -0.0579998 0.563523 0.0412478C0.0411014 0.1872 -0.17186 0.776848 0.157565 1.16216C0.194168 1.20595 0.237426 1.24681 0.280683 1.28768C1.97772 2.7764 3.67144 4.26511 5.36848 5.75091C5.67794 6.02238 6.07059 6.07492 6.42663 5.89394C6.51315 5.85015 6.58968 5.78594 6.65956 5.72464C8.30669 4.27971 9.95049 2.83478 11.6009 1.39277C11.784 1.23222 11.947 1.06875 12.0002 0.838149C12.0002 0.771011 12.0002 0.703873 12.0002 0.633816Z" />
-                                    </svg>
-                                </span>
-                            </a>
-
-                            {{-- <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                @foreach ($currency_list as $currency_dropdown_item)
-                                    <li><a class="dropdown-item" href="{{ route('currency-switcher', ['currency_code' => $currency_dropdown_item->currency_code]) }}">{{ $currency_dropdown_item->currency_name }}</a></li>
-                                @endforeach
-                            </ul> --}}
-
-                        </div>
-                    </div>
-                    <div class="header-right-item-btn">
-                        <div class="dropdown">
-
-                            <a class=" btn-secondary dropdown-toggle" href="#" role="button"
-                                id="dropdownMenuLink1" data-bs-toggle="dropdown" aria-expanded="false">
-                                <span>
-                                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <ellipse cx="11.0001" cy="11" rx="4" ry="10" stroke-width="1.5" />
-                                        <path
-                                            d="M20.9962 10.7205C19.1938 12.2016 15.3949 13.2222 11 13.2222C6.60511 13.2222 2.80619 12.2016 1.00383 10.7205M20.9962 10.7205C20.8482 5.32691 16.4294 1 11 1C5.57061 1 1.15183 5.32691 1.00383 10.7205M20.9962 10.7205C20.9987 10.8134 21 10.9065 21 11C21 16.5228 16.5228 21 11 21C5.47715 21 1 16.5228 1 11C1 10.9065 1.00128 10.8134 1.00383 10.7205"
-                                            stroke-width="1.5" />
-                                    </svg>
-                                </span>
-                                {{ Session::get('front_lang_name') }}
-
-                                <span class="btn-arrow">
-                                    <svg width="12" height="6" viewBox="0 0 12 6" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M12.0002 0.633816C11.947 0.446997 11.8572 0.28353 11.6808 0.158011C11.3813 -0.0492418 10.9487 -0.0550799 10.6493 0.155092C10.5927 0.195958 10.5361 0.239744 10.4829 0.286449C9.02543 1.56499 7.56465 2.84645 6.10719 4.125C6.07391 4.15419 6.04729 4.18922 5.96743 4.24176C5.94414 4.20673 5.93083 4.16294 5.89755 4.13375C4.42679 2.84062 2.95269 1.5504 1.48192 0.257257C1.22237 0.0295716 0.922896 -0.0579998 0.563523 0.0412478C0.0411014 0.1872 -0.17186 0.776848 0.157565 1.16216C0.194168 1.20595 0.237426 1.24681 0.280683 1.28768C1.97772 2.7764 3.67144 4.26511 5.36848 5.75091C5.67794 6.02238 6.07059 6.07492 6.42663 5.89394C6.51315 5.85015 6.58968 5.78594 6.65956 5.72464C8.30669 4.27971 9.95049 2.83478 11.6009 1.39277C11.784 1.23222 11.947 1.06875 12.0002 0.838149C12.0002 0.771011 12.0002 0.703873 12.0002 0.633816Z" />
-                                    </svg>
-                                </span>
-                            </a>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="header-right-login-btn">
-                @auth('web')
-                    <a href="{{ route('user.dashboard') }}" class="@if(Route::is('home')) {{ Session::get('selected_theme') == 'theme_three' ? 'thm-btn' : 'thm-btn-two' }} @else thm-btn-two  @endif">
-                        <span>
-                            <svg width="14" height="18" viewBox="0 0 14 18" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <ellipse cx="6.99676" cy="13.8885" rx="6.22222" ry="3.11111" stroke-width="1.4"
-                                    stroke-linejoin="round" />
-                                <circle cx="6.99611" cy="4.55556" r="3.55556" stroke-width="1.4"
-                                    stroke-linejoin="round" />
-                            </svg>
-                        </span>
-                        {{ __('translate.Dashboard') }}
+            <ul class="nav-links bg-dark">
+                <li>
+                    <a href="{{ route('home') }}" class="text-white {{ Route::is('home') ? 'active' : '' }}">
+                        <i class="fas fa-home"></i> الصفحة الرئيسية
                     </a>
-                @else
-                @endauth
-
-            </div>
-
-
-
-            <ul class="nav-links">
-                <li class="dropdown">
-                <a href="javascript:;">{{ __('translate.Home') }}
-                     <span>
-                     <i class="fa-solid fa-angle-down"></i>
-                    </span>
-                 </a>
-                    <ul class="d-menu">
-                        <li><a href="{{ route('home', ['theme' => 'one']) }}">{{ __('translate.Home-01') }} </a> </li>
-                        <li><a href="{{ route('home', ['theme' => 'two']) }}">{{ __('translate.Home-02') }} </a> </li>
-                        <li><a href="{{ route('home', ['theme' => 'three']) }}">{{ __('translate.Home-03') }} </a> </li>
-                    </ul>
                 </li>
-
-                <li><a href="{{ route('about-us') }}">{{ __(key: 'translate.About Us') }}</a></li>
-                <li><a href="{{ route('contact-us') }}">{{ __('translate.Contact') }}</a></li>
+                <li>
+                    <a href="#" class="text-white">
+                        <i class="fas fa-car"></i> المعرض
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('about-us') }}" class="text-white {{ Route::is('about-us') ? 'active' : '' }}">
+                        <i class="fas fa-info-circle"></i> نبذة عنا
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('contact-us') }}" class="text-white {{ Route::is('contact-us') ? 'active' : '' }}">
+                        <i class="fas fa-envelope"></i> اتصل بنا
+                    </a>
+                </li>
+                <li>
+                    <a href="https://maps.app.goo.gl/J1FPhWPzNBLq8qXC9?g_st=iw" class="text-white" target="_blank">
+                        <i class="fas fa-map-marker-alt"></i> موقعنا
+                    </a>
+                </li>
             </ul>
         </nav>
     </aside>
+    <!-- Overlay for mobile menu -->
+    <div class="offcanvas-overlay bg-dark bg-opacity-75"></div>
 
     <!-- header part end -->
 
@@ -858,6 +775,51 @@
         });
     </script>
 
+    @stack('script_section')
+
+    <!-- Mobile Navigation JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Open Menu
+            document.getElementById('nav-opn-btn').addEventListener('click', function() {
+                document.getElementById('offcanvas-nav').classList.add('active');
+                document.querySelector('.offcanvas-overlay').classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+
+            // Close Menu
+            document.getElementById('nav-cls-btn').addEventListener('click', function() {
+                document.getElementById('offcanvas-nav').classList.remove('active');
+                document.querySelector('.offcanvas-overlay').classList.remove('active');
+                document.body.style.overflow = '';
+            });
+
+            // Handle Dropdowns
+            document.querySelectorAll('.nav-links .dropdown > a').forEach(function(dropdownToggle) {
+                dropdownToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const parent = this.parentElement;
+                    if (parent.classList.contains('active')) {
+                        parent.classList.remove('active');
+                    } else {
+                        document.querySelectorAll('.nav-links .dropdown').forEach(function(dropdown) {
+                            dropdown.classList.remove('active');
+                        });
+                        parent.classList.add('active');
+                    }
+                });
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('#offcanvas-nav') && !e.target.closest('#nav-opn-btn')) {
+                    document.getElementById('offcanvas-nav').classList.remove('active');
+                    document.querySelector('.offcanvas-overlay').classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

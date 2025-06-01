@@ -1,0 +1,42 @@
+/* Mobile Font Size Adjustments */
+@media (max-width: 576px) {
+    .display-2 {
+        font-size: 1.5rem !important;
+        line-height: 1.2 !important;
+    }
+    
+    .banner-two {
+        padding-top: 50px !important;
+        padding-bottom: 50px !important;
+        min-height: auto !important;
+    }
+    
+    .banner-two span {
+        font-size: 20px !important;
+    }
+    
+    /* Center text on mobile */
+    .text-center-mobile {
+        text-align: center !important;
+        width: 100% !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+}
+
+/* للشاشات المتوسطة */
+@media (min-width: 577px) and (max-width: 768px) {
+    .display-2 {
+        font-size: 1.8rem !important;
+    }
+    
+    .banner-two {
+        padding-top: 100px !important;
+        padding-bottom: 100px !important;
+    }
+    
+    .banner-two span {
+        font-size: 24px !important;
+    }
+} 
