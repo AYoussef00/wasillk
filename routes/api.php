@@ -6,6 +6,7 @@ use App\Http\Controllers\API\HomeController;
 use App\Http\Controllers\API\ProfileController;
 use App\Http\Controllers\API\Auth\LoginController;
 use App\Http\Controllers\API\Auth\RegisterController;
+use App\Http\Controllers\API\CarController;
 
 
 
@@ -115,4 +116,9 @@ Route::group(['middleware' => ['HtmlSpecialchars', 'CurrencyLangaugeForAPI']], f
     });
 
 
+
+    Route::get('/used-cars', [CarController::class, 'getUsedCars'])->name('used-cars');
+
+    Route::post('/pending-request', [CarController::class, 'storePendingRequest'])->name('pending-request.store');
+    
 });
