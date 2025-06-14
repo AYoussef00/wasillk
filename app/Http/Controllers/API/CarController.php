@@ -44,17 +44,36 @@ class CarController extends Controller
             'delivery_method' => 'required|string|max:100',
             'total_days' => 'required|integer|min:1',
             'total_amount' => 'required|numeric|min:0',
-            'driving_licence' => 'required|string|max:255',
-            'national_id' => 'required|string|max:50',
+    
+            // ✅ التحقق من الصور
+            'driving_licence' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'national_id' => 'required|image|mimes:jpeg,png,jpg|max:2048',
         ]);
-
+    
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors()], 422);
         }
-
-        $pendingRequest = PendingRequest::create($request->all());
-
-        return response()->json(['message' => 'Request submitted successfully', 'data' => $pendingRequest], 201);
+    
+        // ✅ تجهيز البيانات بدون الصور
+        $data = $request->except(['driving_licence', 'national_id']);
+    
+        // ✅ حفظ صورة رخصة القيادة
+        if ($request->hasFile('driving_licence')) {
+            $data['driving_licence'] = $request->file('driving_licence')->store('licenses', 'public');
+        }
+    
+        // ✅ حفظ صورة الهوية
+        if ($request->hasFile('national_id')) {
+            $data['national_id'] = $request->file('national_id')->store('ids', 'public');
+        }
+    
+        // ✅ إنشاء الطلب في قاعدة البيانات
+        $pendingRequest = PendingRequest::create($data);
+    
+        return response()->json([
+            'message' => 'Request submitted successfully',
+            'data' => $pendingRequest,
+        ], 201);
     }
 
     
